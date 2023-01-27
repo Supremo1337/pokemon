@@ -11,7 +11,8 @@ import {
 } from "./styles";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
+import axios, { AxiosResponse } from "axios";
 
 const style = {
   position: "absolute" as "absolute",
@@ -29,65 +30,118 @@ const style = {
   p: 4,
 };
 
-export default function Quiz() {
+export interface IPokemonInfo {
+  number: number;
+  gridColumn: string;
+  gridRow: string;
+  gridColumnDesktop: string;
+  gridRowDesktop: string;
+  name: string;
+}
+
+const Pokemon: React.FC<{ pokemon: IPokemonInfo }> = ({ pokemon }) => {
   const [open, setOpen] = useState(false);
-  const handleModal = () => setOpen(!open);
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const [visible, setVisible] = useState(true);
 
-  const circles = [
-    {
-      number: 1,
-      gridColumn: "1/2",
-      gridRow: "1/2",
-      gridColumnDesktop: "1/2",
-      gridRowDesktop: "1/2",
-      pokeName: "Snorlax",
-    },
-    {
-      number: 2,
-      gridColumn: "2/3",
-      gridRow: "1/2",
-      gridColumnDesktop: "2/3",
-      gridRowDesktop: "1/2",
-      pokeName: "Pikachu",
-    },
-    {
-      number: 3,
-      gridColumn: "1/2",
-      gridRow: "2/3",
-      gridColumnDesktop: "3/4",
-      gridRowDesktop: "1/2",
-      pokeName: "Lucario",
-    },
-  ];
+  return (
+    <NumbersCircle
+      gridColumn={pokemon.gridColumn}
+      gridRow={pokemon.gridRow}
+      gridColumnDesktop={pokemon.gridColumnDesktop}
+      gridRowDesktop={pokemon.gridRowDesktop}
+      onClick={handleOpen}
+      key={pokemon.name}
+    >
+      <CirclesNumbers></CirclesNumbers>
+      <Modal open={open}>
+        <Box sx={style}>
+          {visible && "1" ? (
+            <WhosThatPokemonImage
+              bgImage={`url(/img/snorlaxSombra.png)` || ""}
+            />
+          ) : (
+            <>
+              <WhosThatPokemonImage
+                bgImage={`url(/img/snorlaxColorido.png)` || ""}
+              />
+              <PokemonName onClick={handleClose}>{pokemon.name}</PokemonName>
+            </>
+          )}
+          <InterrogationButton
+            onClick={() => {
+              setVisible(false);
+            }}
+          />
+          ;
+        </Box>
+      </Modal>
+    </NumbersCircle>
+  );
+};
 
-  console.log(open);
+export default function Quiz() {
+  const [allPokemons, setAllPokemons] = useState<AxiosResponse | null | void>();
+  const [randomPokemons, setRandomPokemons] = useState<any[]>();
+  const randomPokemon = Math.floor(Math.random() * 1000);
+  const [numberTeste, setNumberTeste] = useState([
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+  ]);
+
+  useEffect(() => {
+    getPokemons();
+  }, []);
+
+  const getPokemons = () => {
+    // var endpoints: any = [];
+    // for (var i = 1; i < 1000; i++) {
+    //   endpoints.push(
+    //     `https://pokeapi.co/api/v2/pokemon?limit=1000&offset=${randomPokemon}`
+    //   );
+    //   var reponse = axios
+    //     .all(endpoints.map((endpoint: any) => axios.get(endpoint)))
+    //     .then((res) => setAllPokemons(res));
+    // }
+    axios
+      .get(
+        `https://pokeapi.co/api/v2/pokemon?limit=1000&offset=${randomPokemon}`
+      )
+      .then(function (response) {
+        console.log("Todos os pokemons", response);
+        setAllPokemons(response.data.results);
+      });
+    // shuffle(allPokemons?.data.results);
+    // console.log("Results", allPokemons?.data?.results)
+  };
+
+  function shuffle(pokemonsAleatorios: any) {
+    let currentIndex = pokemonsAleatorios.length,
+      randomIndex;
+    while (currentIndex != 0) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+      [pokemonsAleatorios[currentIndex], pokemonsAleatorios[randomIndex]] = [
+        pokemonsAleatorios[randomIndex],
+        pokemonsAleatorios[currentIndex],
+      ];
+    }
+    console.log("ALEATORIO AQ", pokemonsAleatorios);
+    setRandomPokemons(pokemonsAleatorios);
+    return pokemonsAleatorios;
+  }
+
   return (
     <Content>
-      <Text>Quiz</Text>
+      <Text onClick={() => shuffle(allPokemons)}>Quiz</Text>
       <NumbersBox>
         <RowOfTheNumbers>
-          {circles.map((res, index) => {
-            return (
-              <NumbersCircle
-                gridColumn={res.gridColumn}
-                gridRow={res.gridRow}
-                gridColumnDesktop={res.gridColumnDesktop}
-                gridRowDesktop={res.gridRowDesktop}
-                onClick={handleModal}
-                key={index}
-              >
-                <CirclesNumbers>{res.number}</CirclesNumbers>
-                <Modal open={open}>
-                  <Box sx={style}>
-                    <WhosThatPokemonImage />
-                    <InterrogationButton />
-                    <PokemonName onClick={handleModal}>
-                      {res.pokeName}
-                    </PokemonName>
-                  </Box>
-                </Modal>
-              </NumbersCircle>
-            );
+          {randomPokemons?.slice(0, 10).map((res, index) => {
+            return <Pokemon key={index} pokemon={res} />;
           })}
         </RowOfTheNumbers>
       </NumbersBox>

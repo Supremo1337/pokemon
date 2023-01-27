@@ -7,6 +7,9 @@ interface NumbersCircleProps {
   gridColumnDesktop: string;
   gridRowDesktop: string;
 }
+interface WhosThatPokemonImage {
+  bgImage: string;
+}
 
 export const Content = styled.div`
   width: 100%;
@@ -87,10 +90,14 @@ export const CirclesNumbers = styled.div`
   color: #000;
 `;
 
-export const WhosThatPokemonImage = styled.div`
+export const WhosThatPokemonImage = styled.div<WhosThatPokemonImage>`
   width: 530px;
   height: 583px;
-  background-color: black;
+  /* background-color: black; */
+  background-image: ${(props) => props.bgImage};
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
   position: absolute;
   left: 14%;
   top: 20%;
@@ -109,7 +116,7 @@ export const InterrogationButton = styled.button`
   cursor: pointer;
 `;
 
-export const PokemonName = styled.label`
+export const PokemonName = styled.button`
   position: absolute;
   left: 9%;
   top: 86%;

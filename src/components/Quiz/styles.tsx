@@ -116,7 +116,7 @@ export const InterrogationButton = styled.button`
   cursor: pointer;
 `;
 
-export const PokemonName = styled.button`
+export const PokemonName = styled.label`
   position: absolute;
   left: 9%;
   top: 86%;

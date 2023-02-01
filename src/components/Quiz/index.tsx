@@ -13,6 +13,7 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import React, { useEffect, useState } from "react";
 import axios, { AxiosResponse } from "axios";
+import Loading from "../Loading";
 
 const style = {
   position: "absolute" as "absolute",
@@ -37,6 +38,7 @@ export interface IPokemonInfo {
   gridColumnDesktop: string;
   gridRowDesktop: string;
   name: string;
+  data: any;
 }
 
 const Pokemon: React.FC<{ pokemon: IPokemonInfo }> = ({ pokemon }) => {
@@ -47,41 +49,55 @@ const Pokemon: React.FC<{ pokemon: IPokemonInfo }> = ({ pokemon }) => {
   const handleClose = () => {
     setOpen(false);
   };
+
   const [visible, setVisible] = useState(true);
 
   return (
-    <NumbersCircle
-      gridColumn={pokemon.gridColumn}
-      gridRow={pokemon.gridRow}
-      gridColumnDesktop={pokemon.gridColumnDesktop}
-      gridRowDesktop={pokemon.gridRowDesktop}
-      onClick={handleOpen}
-      key={pokemon.name}
-    >
-      <CirclesNumbers></CirclesNumbers>
-      <Modal open={open}>
-        <Box sx={style}>
-          {visible && "1" ? (
-            <WhosThatPokemonImage
-              bgImage={`url(/img/snorlaxSombra.png)` || ""}
-            />
-          ) : (
-            <>
-              <WhosThatPokemonImage
-                bgImage={`url(/img/snorlaxColorido.png)` || ""}
+    <>
+      {pokemon && (
+        <>
+          <NumbersCircle
+            gridColumn={pokemon.gridColumn}
+            gridRow={pokemon.gridRow}
+            gridColumnDesktop={pokemon.gridColumnDesktop}
+            gridRowDesktop={pokemon.gridRowDesktop}
+            onClick={handleOpen}
+            key={pokemon.name}
+          >
+            <CirclesNumbers></CirclesNumbers>
+          </NumbersCircle>
+          <Modal open={open}>
+            <Box sx={style}>
+              {visible && "1" ? (
+                <WhosThatPokemonImage
+                  bgImage={`url(/img/snorlaxSombra.png)` || ""}
+                />
+              ) : (
+                <>
+                  <WhosThatPokemonImage
+                    bgImage={
+                      `url(${pokemon.data.sprites.other["official-artwork"].front_default})` ||
+                      ""
+                    }
+                    // bgImage={`url(/img/snorlaxColorido.png)` || ""}
+                  />
+                  <PokemonName onClick={handleClose}>
+                    {pokemon?.data.name}
+                  </PokemonName>
+                  {console.log("Chegou aq", open)}
+                </>
+              )}
+              <InterrogationButton
+                onClick={() => {
+                  setVisible(false);
+                }}
               />
-              <PokemonName onClick={handleClose}>{pokemon.name}</PokemonName>
-            </>
-          )}
-          <InterrogationButton
-            onClick={() => {
-              setVisible(false);
-            }}
-          />
-          ;
-        </Box>
-      </Modal>
-    </NumbersCircle>
+              ;
+            </Box>
+          </Modal>
+        </>
+      )}
+    </>
   );
 };
 
@@ -89,6 +105,7 @@ export default function Quiz() {
   const [allPokemons, setAllPokemons] = useState<AxiosResponse | null | void>();
   const [randomPokemons, setRandomPokemons] = useState<any[]>();
   const randomPokemon = Math.floor(Math.random() * 1000);
+  const [removeLoading, setRemoveLoading] = useState(false);
   const [numberTeste, setNumberTeste] = useState([
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
   ]);
@@ -98,29 +115,31 @@ export default function Quiz() {
   }, []);
 
   const getPokemons = () => {
-    // var endpoints: any = [];
-    // for (var i = 1; i < 1000; i++) {
-    //   endpoints.push(
-    //     `https://pokeapi.co/api/v2/pokemon?limit=1000&offset=${randomPokemon}`
-    //   );
-    //   var reponse = axios
-    //     .all(endpoints.map((endpoint: any) => axios.get(endpoint)))
-    //     .then((res) => setAllPokemons(res));
-    // }
-    axios
-      .get(
-        `https://pokeapi.co/api/v2/pokemon?limit=1000&offset=${randomPokemon}`
-      )
-      .then(function (response) {
-        console.log("Todos os pokemons", response);
-        setAllPokemons(response.data.results);
+    var endpoints = [];
+    for (var i = 1; i < 1000; i++) {
+      endpoints.push(`https://pokeapi.co/api/v2/pokemon/${i}/`);
+    }
+    console.log(endpoints);
+    var response = axios
+      .all(endpoints.map((endpoint) => axios.get(endpoint)))
+      // .then((res) => setAllPokemons(res));
+      .then((res) => {
+        setAllPokemons(res);
+        setRemoveLoading(true);
       });
+    // axios
+    //   .get(`https://pokeapi.co/api/v2/pokemon?limit=1000`)
+    //   .then(function (response) {
+    //     console.log("Todos os pokemons", response);
+    //     setAllPokemons(response.data.results);
+    //   });
+
     // shuffle(allPokemons?.data.results);
     // console.log("Results", allPokemons?.data?.results)
   };
 
   function shuffle(pokemonsAleatorios: any) {
-    let currentIndex = pokemonsAleatorios.length,
+    let currentIndex = pokemonsAleatorios?.length,
       randomIndex;
     while (currentIndex != 0) {
       randomIndex = Math.floor(Math.random() * currentIndex);
@@ -136,15 +155,22 @@ export default function Quiz() {
   }
 
   return (
-    <Content>
-      <Text onClick={() => shuffle(allPokemons)}>Quiz</Text>
-      <NumbersBox>
-        <RowOfTheNumbers>
-          {randomPokemons?.slice(0, 10).map((res, index) => {
-            return <Pokemon key={index} pokemon={res} />;
-          })}
-        </RowOfTheNumbers>
-      </NumbersBox>
-    </Content>
+    <>
+      <Content>
+        <Text onClick={() => shuffle(allPokemons)}>Quiz</Text>
+        <NumbersBox>
+          <RowOfTheNumbers>
+            {randomPokemons?.slice(0, 10).map((res, index) => {
+              return (
+                <>
+                  <Pokemon key={index} pokemon={res} />
+                </>
+              );
+            })}
+          </RowOfTheNumbers>
+        </NumbersBox>
+      </Content>
+      {!allPokemons && <Loading />}
+    </>
   );
 }

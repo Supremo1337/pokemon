@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const Content = styled.div`
   width: 100vw;
   height: 100vh;
-  background-color: pink;
+  /* background-color: pink; */
   background-image: url("/img/background-quiz.png");
   background-size: cover;
   background-repeat: no-repeat;

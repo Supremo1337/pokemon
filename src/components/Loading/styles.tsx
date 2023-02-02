@@ -28,8 +28,8 @@ export const Loader = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  width: 500px;
-  height: 500px;
+  width: 100px;
+  height: 100px;
   animation: ${FadeInAnimation} 1.5s linear infinite;
   /* opacity: 1; */
 `;

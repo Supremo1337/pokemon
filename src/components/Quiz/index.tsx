@@ -14,22 +14,30 @@ import Modal from "@mui/material/Modal";
 import React, { useEffect, useState } from "react";
 import axios, { AxiosResponse } from "axios";
 import Loading from "../Loading";
+import { useMediaQuery } from "@mui/material";
 
-const style = {
-  position: "absolute" as "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: "100%",
-  height: "100%",
-  backgroundImage: "url(/img/poke.png)",
-  backgroundSize: "cover",
-  backgroundRepeat: "noRepeat",
-  backgroundPosition: "center",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
-};
+function style(mediaQuery: boolean) {
+  return {
+    position: "absolute" as "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: "100%",
+    height: "100%",
+    backgroundImage: mediaQuery
+      ? "url(/img/whosThatPokeHorizontal.png)"
+      : "url(/img/whosThatPokeMobilel.png)",
+    backgroundSize: mediaQuery ? "cover" : "contain",
+    backgroundRepeat: "noRepeat",
+    backgroundPosition: "center",
+    border: "2px solid #000",
+    boxShadow: 24,
+    p: 4,
+    display: "grid",
+    gridTemplateColumns: "1fr",
+    gridTemplateRows: "479px 173px 82px",
+  };
+}
 
 export interface IPokemonInfo {
   number: number;
@@ -51,6 +59,7 @@ const Pokemon: React.FC<{ pokemon: IPokemonInfo }> = ({ pokemon }) => {
   };
 
   const [visible, setVisible] = useState(true);
+  const matches = useMediaQuery("(min-width: 1024px)");
 
   return (
     <>
@@ -67,10 +76,14 @@ const Pokemon: React.FC<{ pokemon: IPokemonInfo }> = ({ pokemon }) => {
             <CirclesNumbers></CirclesNumbers>
           </NumbersCircle>
           <Modal open={open}>
-            <Box sx={style}>
+            <Box sx={{ ...style(matches) }}>
               {visible && "1" ? (
                 <WhosThatPokemonImage
-                  bgImage={`url(/img/snorlaxSombra.png)` || ""}
+                  bgImage={
+                    `url(${pokemon.data.sprites.other["official-artwork"].front_default})` ||
+                    ""
+                  }
+                  filter={"brightness(0%)"}
                 />
               ) : (
                 <>
@@ -104,8 +117,8 @@ const Pokemon: React.FC<{ pokemon: IPokemonInfo }> = ({ pokemon }) => {
 export default function Quiz() {
   const [allPokemons, setAllPokemons] = useState<AxiosResponse | null | void>();
   const [randomPokemons, setRandomPokemons] = useState<any[]>();
+  const [loading, setLoading] = useState(true);
   const randomPokemon = Math.floor(Math.random() * 1000);
-  const [removeLoading, setRemoveLoading] = useState(false);
   const [numberTeste, setNumberTeste] = useState([
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
   ]);
@@ -115,18 +128,23 @@ export default function Quiz() {
   }, []);
 
   const getPokemons = () => {
+    setLoading(true);
     var endpoints = [];
     for (var i = 1; i < 1000; i++) {
       endpoints.push(`https://pokeapi.co/api/v2/pokemon/${i}/`);
     }
-    console.log(endpoints);
+    console.log(endpoints, "ENDPOINTS AQQQQQ");
     var response = axios
       .all(endpoints.map((endpoint) => axios.get(endpoint)))
-      // .then((res) => setAllPokemons(res));
       .then((res) => {
         setAllPokemons(res);
-        setRemoveLoading(true);
+        shuffle(res);
+        setLoading(false);
+        // shuffle(allPokemons);
       });
+
+    // allPokemons ? shuffle(allPokemons) : "";
+    console.log(allPokemons, "Allpokemons no fim do get aq");
     // axios
     //   .get(`https://pokeapi.co/api/v2/pokemon?limit=1000`)
     //   .then(function (response) {
@@ -156,21 +174,27 @@ export default function Quiz() {
 
   return (
     <>
+      {console.log(randomPokemons, "randomPokemons aq")}
       <Content>
-        <Text onClick={() => shuffle(allPokemons)}>Quiz</Text>
-        <NumbersBox>
-          <RowOfTheNumbers>
-            {randomPokemons?.slice(0, 10).map((res, index) => {
-              return (
-                <>
-                  <Pokemon key={index} pokemon={res} />
-                </>
-              );
-            })}
-          </RowOfTheNumbers>
-        </NumbersBox>
+        <Text onClick={() => getPokemons()}>Quiz</Text>
+        {!loading ? (
+          <>
+            <NumbersBox>
+              <RowOfTheNumbers>
+                {randomPokemons?.slice(0, 10).map((res, index) => {
+                  return (
+                    <>
+                      <Pokemon key={index} pokemon={res} />
+                    </>
+                  );
+                })}
+              </RowOfTheNumbers>
+            </NumbersBox>
+          </>
+        ) : (
+          <Loading />
+        )}
       </Content>
-      {!allPokemons && <Loading />}
     </>
   );
 }

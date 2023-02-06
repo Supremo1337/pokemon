@@ -1,127 +1,24 @@
 import {
-  CirclesNumbers,
+  Wrapper,
   Content,
-  InterrogationButton,
+  DivToGroupShuffleButtonAndText,
   NumbersBox,
-  NumbersCircle,
-  PokemonName,
   RowOfTheNumbers,
+  ShuffleButton,
   Text,
-  WhosThatPokemonImage,
 } from "./styles";
-import Box from "@mui/material/Box";
-import Modal from "@mui/material/Modal";
 import React, { useEffect, useState } from "react";
 import axios, { AxiosResponse } from "axios";
 import Loading from "../Loading";
-import { useMediaQuery } from "@mui/material";
-
-function style(mediaQuery: boolean) {
-  return {
-    position: "absolute" as "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    width: "100%",
-    height: "100%",
-    backgroundImage: mediaQuery
-      ? "url(/img/whosThatPokeHorizontal.png)"
-      : "url(/img/whosThatPokeMobilel.png)",
-    backgroundSize: mediaQuery ? "cover" : "contain",
-    backgroundRepeat: "noRepeat",
-    backgroundPosition: "center",
-    border: "2px solid #000",
-    boxShadow: 24,
-    p: 4,
-    display: "grid",
-    gridTemplateColumns: "1fr",
-    gridTemplateRows: "479px 173px 82px",
-  };
-}
-
-export interface IPokemonInfo {
-  number: number;
-  gridColumn: string;
-  gridRow: string;
-  gridColumnDesktop: string;
-  gridRowDesktop: string;
-  name: string;
-  data: any;
-}
-
-const Pokemon: React.FC<{ pokemon: IPokemonInfo }> = ({ pokemon }) => {
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => {
-    setOpen(true);
-  };
-  const handleClose = () => {
-    setOpen(false);
-  };
-
-  const [visible, setVisible] = useState(true);
-  const matches = useMediaQuery("(min-width: 1024px)");
-
-  return (
-    <>
-      {pokemon && (
-        <>
-          <NumbersCircle
-            gridColumn={pokemon.gridColumn}
-            gridRow={pokemon.gridRow}
-            gridColumnDesktop={pokemon.gridColumnDesktop}
-            gridRowDesktop={pokemon.gridRowDesktop}
-            onClick={handleOpen}
-            key={pokemon.name}
-          >
-            <CirclesNumbers></CirclesNumbers>
-          </NumbersCircle>
-          <Modal open={open}>
-            <Box sx={{ ...style(matches) }}>
-              {visible && "1" ? (
-                <WhosThatPokemonImage
-                  bgImage={
-                    `url(${pokemon.data.sprites.other["official-artwork"].front_default})` ||
-                    ""
-                  }
-                  filter={"brightness(0%)"}
-                />
-              ) : (
-                <>
-                  <WhosThatPokemonImage
-                    bgImage={
-                      `url(${pokemon.data.sprites.other["official-artwork"].front_default})` ||
-                      ""
-                    }
-                    // bgImage={`url(/img/snorlaxColorido.png)` || ""}
-                  />
-                  <PokemonName onClick={handleClose}>
-                    {pokemon?.data.name}
-                  </PokemonName>
-                  {console.log("Chegou aq", open)}
-                </>
-              )}
-              <InterrogationButton
-                onClick={() => {
-                  setVisible(false);
-                }}
-              />
-              ;
-            </Box>
-          </Modal>
-        </>
-      )}
-    </>
-  );
-};
+import { Shuffle } from "phosphor-react";
+import { PokeBall } from "../PokeBall";
+import PersistentDrawerLeft from "../Drawer";
 
 export default function Quiz() {
-  const [allPokemons, setAllPokemons] = useState<AxiosResponse | null | void>();
+  const [allPokemons, setAllPokemons] = useState<AxiosResponse<any, any>[]>();
   const [randomPokemons, setRandomPokemons] = useState<any[]>();
   const [loading, setLoading] = useState(true);
-  const randomPokemon = Math.floor(Math.random() * 1000);
-  const [numberTeste, setNumberTeste] = useState([
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
-  ]);
+  // const randomPokemon = Math.floor(Math.random() * 1000);
 
   useEffect(() => {
     getPokemons();
@@ -130,7 +27,7 @@ export default function Quiz() {
   const getPokemons = () => {
     setLoading(true);
     var endpoints = [];
-    for (var i = 1; i < 1000; i++) {
+    for (var i = 1; i < 1008; i++) {
       endpoints.push(`https://pokeapi.co/api/v2/pokemon/${i}/`);
     }
     console.log(endpoints, "ENDPOINTS AQQQQQ");
@@ -156,45 +53,66 @@ export default function Quiz() {
     // console.log("Results", allPokemons?.data?.results)
   };
 
-  function shuffle(pokemonsAleatorios: any) {
-    let currentIndex = pokemonsAleatorios?.length,
+  function shuffle(pokemons: any) {
+    let currentIndex = pokemons?.length,
       randomIndex;
     while (currentIndex != 0) {
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex--;
-      [pokemonsAleatorios[currentIndex], pokemonsAleatorios[randomIndex]] = [
-        pokemonsAleatorios[randomIndex],
-        pokemonsAleatorios[currentIndex],
+      [pokemons[currentIndex], pokemons[randomIndex]] = [
+        pokemons[randomIndex],
+        pokemons[currentIndex],
       ];
     }
-    console.log("ALEATORIO AQ", pokemonsAleatorios);
-    setRandomPokemons(pokemonsAleatorios);
-    return pokemonsAleatorios;
+    console.log("ALEATORIO AQ", pokemons);
+    setRandomPokemons(pokemons);
+    return pokemons;
   }
 
   return (
     <>
-      {console.log(randomPokemons, "randomPokemons aq")}
-      <Content>
-        <Text onClick={() => getPokemons()}>Quiz</Text>
-        {!loading ? (
-          <>
-            <NumbersBox>
-              <RowOfTheNumbers>
-                {randomPokemons?.slice(0, 10).map((res, index) => {
-                  return (
-                    <>
-                      <Pokemon key={index} pokemon={res} />
-                    </>
-                  );
-                })}
-              </RowOfTheNumbers>
-            </NumbersBox>
-          </>
-        ) : (
-          <Loading />
-        )}
-      </Content>
+      <Wrapper>
+        <Content>
+          {!loading ? (
+            <>
+              <DivToGroupShuffleButtonAndText>
+                <Text cursor="" fontSize="3rem" letterSpacing="10px" margin="0">
+                  Quiz
+                </Text>
+                <ShuffleButton onClick={() => getPokemons()}>
+                  <Shuffle size={24} color="#5f5f77" cursor="pointer" />
+                  <Text
+                    cursor="pointer"
+                    fontSize="1.4rem"
+                    letterSpacing="5px"
+                    margin="0 0 6px 0"
+                  >
+                    Aleatorizar
+                  </Text>
+                </ShuffleButton>
+              </DivToGroupShuffleButtonAndText>
+              <NumbersBox>
+                <RowOfTheNumbers>
+                  {randomPokemons?.slice(0, 10).map((res, index) => {
+                    return (
+                      <>
+                        <PokeBall
+                          number={index + 1}
+                          key={index}
+                          pokemon={res}
+                        />
+                      </>
+                    );
+                  })}
+                </RowOfTheNumbers>
+              </NumbersBox>
+            </>
+          ) : (
+            <Loading />
+          )}
+        </Content>
+      </Wrapper>
+      <PersistentDrawerLeft />
     </>
   );
 }

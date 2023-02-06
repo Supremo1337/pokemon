@@ -1,6 +1,6 @@
 import { Inter } from "@next/font/google";
 import Quiz from "@/components/Quiz";
-import WhosThatPokemon from "@/components/WhosThatPokemon";
+import WhosThatPokemon from "@/components/PokeBall";
 import styled from "styled-components";
 
 const inter = Inter({ subsets: ["latin"] });

@@ -11,11 +11,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import { AppBar, IconGen } from "./styles";
+import { AppBar, IconGen, ListItemRow } from "./styles";
 import { Text } from "../Quiz/styles";
 
 const drawerWidth = 240;
@@ -30,14 +26,14 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 }));
 
 const gens = [
-  { numberOfTheGem: "1", iconOfTheGem: "url(@icon/1-bulbasaurIcon.png)" },
-  { numberOfTheGem: "2", iconOfTheGem: "url(@icon/1-bulbasaurIcon.png)" },
-  { numberOfTheGem: "3", iconOfTheGem: "url(@icon/1-bulbasaurIcon.png)" },
-  { numberOfTheGem: "4", iconOfTheGem: "url(@icon/1-bulbasaurIcon.png)" },
-  { numberOfTheGem: "5", iconOfTheGem: "url(@icon/1-bulbasaurIcon.png)" },
-  { numberOfTheGem: "6", iconOfTheGem: "url(@icon/1-bulbasaurIcon.png)" },
-  { numberOfTheGem: "7", iconOfTheGem: "url(@icon/1-bulbasaurIcon.png)" },
-  { numberOfTheGem: "8", iconOfTheGem: "url(@icon/1-bulbasaurIcon.png)" },
+  { numberOfTheGem: "1", iconOfTheGem: "url(/icon/1-bulbasaurIcon.png)" },
+  { numberOfTheGem: "2", iconOfTheGem: "url(/icon/2-chikoritaIcon.png)" },
+  { numberOfTheGem: "3", iconOfTheGem: "url(/icon/3-treeckoIcon.png)" },
+  { numberOfTheGem: "4", iconOfTheGem: "url(/icon/4-turtwigIcon.png)" },
+  { numberOfTheGem: "5", iconOfTheGem: "url(/icon/5-snivyIcon.png)" },
+  { numberOfTheGem: "6", iconOfTheGem: "url(/icon/6-chespinIcon.png)" },
+  { numberOfTheGem: "7", iconOfTheGem: "url(/icon/7-rowletIcon.png)" },
+  { numberOfTheGem: "8", iconOfTheGem: "url(/icon/8-grookeyIcon.png)" },
 ];
 
 export default function PersistentDrawerLeft() {
@@ -99,10 +95,10 @@ export default function PersistentDrawerLeft() {
           {gens.map((res) => {
             return (
               <ListItem disablePadding>
-                <ListItemButton>
+                <ListItemRow>
                   <IconGen bgImage={res.iconOfTheGem} />
-                  <ListItemText>{res.numberOfTheGem}</ListItemText>
-                </ListItemButton>
+                  <Text fontSize="1.6rem">{res.numberOfTheGem}</Text>
+                </ListItemRow>
               </ListItem>
             );
           })}

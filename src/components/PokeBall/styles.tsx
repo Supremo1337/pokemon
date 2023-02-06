@@ -69,6 +69,7 @@ export const PokemonName = styled.label`
     position: absolute;
     left: 9%;
     top: 86%;
+    color: white;
   }
 `;
 

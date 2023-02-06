@@ -25,11 +25,18 @@ export const AppBar = styled.div`
 `;
 
 export const IconGen = styled.div<IconGenProps>`
-  width: 30px;
-  height: 30px;
-  background-color: red;
+  width: 60px;
+  height: 60px;
   background-image: ${(props) => props.bgImage};
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+`;
+
+export const ListItemRow = styled.div`
+  width: 100%;
+  background: red;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 `;

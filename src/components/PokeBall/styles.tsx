@@ -78,7 +78,7 @@ export const InterrogationButton = styled.button`
   width: 100%;
   height: 100%;
   border: 0;
-  /* background: orange; */
+  background: none;
   /* opacity: 0.5; */
   cursor: pointer;
   grid-column: 1/2;

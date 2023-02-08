@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
@@ -13,6 +13,11 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ListItem from "@mui/material/ListItem";
 import { AppBar, IconGen, ListItemRow } from "./styles";
 import { Text } from "../Quiz/styles";
+import CheckBox, {
+  CheckboxContainer,
+  HiddenCheckbox,
+  StyledCheckbox,
+} from "./CheckBox";
 
 const drawerWidth = 240;
 
@@ -26,19 +31,43 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 }));
 
 const gens = [
-  { numberOfTheGem: "1", iconOfTheGem: "url(/icon/1-bulbasaurIcon.png)" },
-  { numberOfTheGem: "2", iconOfTheGem: "url(/icon/2-chikoritaIcon.png)" },
-  { numberOfTheGem: "3", iconOfTheGem: "url(/icon/3-treeckoIcon.png)" },
-  { numberOfTheGem: "4", iconOfTheGem: "url(/icon/4-turtwigIcon.png)" },
-  { numberOfTheGem: "5", iconOfTheGem: "url(/icon/5-snivyIcon.png)" },
-  { numberOfTheGem: "6", iconOfTheGem: "url(/icon/6-chespinIcon.png)" },
-  { numberOfTheGem: "7", iconOfTheGem: "url(/icon/7-rowletIcon.png)" },
-  { numberOfTheGem: "8", iconOfTheGem: "url(/icon/8-grookeyIcon.png)" },
+  {
+    numberOfTheGeneration: "1",
+    iconOfTheGeneration: "url(/icon/1-bulbasaurIcon.png)",
+  },
+  {
+    numberOfTheGeneration: "2",
+    iconOfTheGeneration: "url(/icon/2-chikoritaIcon.png)",
+  },
+  {
+    numberOfTheGeneration: "3",
+    iconOfTheGeneration: "url(/icon/3-treeckoIcon.png)",
+  },
+  {
+    numberOfTheGeneration: "4",
+    iconOfTheGeneration: "url(/icon/4-turtwigIcon.png)",
+  },
+  {
+    numberOfTheGeneration: "5",
+    iconOfTheGeneration: "url(/icon/5-snivyIcon.png)",
+  },
+  {
+    numberOfTheGeneration: "6",
+    iconOfTheGeneration: "url(/icon/6-chespinIcon.png)",
+  },
+  {
+    numberOfTheGeneration: "7",
+    iconOfTheGeneration: "url(/icon/7-rowletIcon.png)",
+  },
+  {
+    numberOfTheGeneration: "8",
+    iconOfTheGeneration: "url(/icon/8-grookeyIcon.png)",
+  },
 ];
 
 export default function PersistentDrawerLeft() {
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -96,8 +125,9 @@ export default function PersistentDrawerLeft() {
             return (
               <ListItem disablePadding>
                 <ListItemRow>
-                  <IconGen bgImage={res.iconOfTheGem} />
-                  <Text fontSize="1.6rem">{res.numberOfTheGem}</Text>
+                  <IconGen bgImage={res.iconOfTheGeneration} />
+                  <CheckBox />
+                  <Text fontSize="1.6rem">{res.numberOfTheGeneration}</Text>
                 </ListItemRow>
               </ListItem>
             );

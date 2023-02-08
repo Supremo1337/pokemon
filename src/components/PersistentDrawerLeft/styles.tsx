@@ -5,12 +5,9 @@ interface IconGenProps {
 }
 
 export const AppBar = styled.div`
-  width: 20%;
+  width: 100%;
   height: 60px;
-  background: blue;
   position: fixed;
-  background-color: #fff;
-  color: rgba(0, 0, 0, 0.87);
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -22,6 +19,9 @@ export const AppBar = styled.div`
   right: auto;
   background-color: #1976d2;
   color: #fff;
+  @media (min-width: 1024) {
+    width: 20%;
+  }
 `;
 
 export const IconGen = styled.div<IconGenProps>`
@@ -35,7 +35,6 @@ export const IconGen = styled.div<IconGenProps>`
 
 export const ListItemRow = styled.div`
   width: 100%;
-  background: red;
   display: flex;
   align-items: center;
   gap: 10px;

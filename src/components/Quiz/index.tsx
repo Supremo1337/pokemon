@@ -12,7 +12,7 @@ import axios, { AxiosResponse } from "axios";
 import Loading from "../Loading";
 import { Shuffle } from "phosphor-react";
 import { PokeBall } from "../PokeBall";
-import PersistentDrawerLeft from "../Drawer";
+import PersistentDrawerLeft from "../PersistentDrawerLeft";
 
 export default function Quiz() {
   const [allPokemons, setAllPokemons] = useState<AxiosResponse<any, any>[]>();
@@ -37,20 +37,7 @@ export default function Quiz() {
         setAllPokemons(res);
         shuffle(res);
         setLoading(false);
-        // shuffle(allPokemons);
       });
-
-    // allPokemons ? shuffle(allPokemons) : "";
-    console.log(allPokemons, "Allpokemons no fim do get aq");
-    // axios
-    //   .get(`https://pokeapi.co/api/v2/pokemon?limit=1000`)
-    //   .then(function (response) {
-    //     console.log("Todos os pokemons", response);
-    //     setAllPokemons(response.data.results);
-    //   });
-
-    // shuffle(allPokemons?.data.results);
-    // console.log("Results", allPokemons?.data?.results)
   };
 
   function shuffle(pokemons: any) {

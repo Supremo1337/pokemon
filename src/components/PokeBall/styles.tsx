@@ -57,6 +57,7 @@ export const WhosThatPokemonImage = styled.div<WhosThatPokemonImageProps>`
 
 export const PokemonName = styled.label`
   font-size: 8rem;
+  height: 120px;
   background-color: black;
   cursor: pointer;
   grid-column: 1/2;
@@ -64,12 +65,12 @@ export const PokemonName = styled.label`
   text-transform: capitalize;
   max-width: max-content;
   font-family: Arial, Helvetica, sans-serif;
+  color: white;
   @media (min-width: 1024px) {
     font-size: 9rem;
     position: absolute;
     left: 9%;
     top: 86%;
-    color: white;
   }
 `;
 

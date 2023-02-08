@@ -9,13 +9,14 @@ interface TextProps {
 
 export const Wrapper = styled.div`
   width: 100%;
-  height: 833px;
+  height: 762px;
   display: flex;
   border: 5px solid black;
   align-items: center;
   flex-direction: column;
   padding: 10px;
   justify-content: space-between;
+  margin-top: 60px;
   @media (min-width: 1024px) {
     width: 732px;
     background-size: cover;
@@ -27,7 +28,7 @@ export const Wrapper = styled.div`
 
 export const Content = styled.div`
   width: 100%;
-  height: 833px;
+  height: 753px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -46,13 +47,14 @@ export const Content = styled.div`
 
 export const DivToGroupShuffleButtonAndText = styled.div`
   width: auto;
-  height: 90px;
+  height: 125px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   @media (min-width: 1024px) {
     width: 58%;
+    height: 90px;
     flex-direction: row;
   }
 `;

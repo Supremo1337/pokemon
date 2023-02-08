@@ -15,7 +15,7 @@ import { PokeBall } from "../PokeBall";
 import PersistentDrawerLeft from "../PersistentDrawerLeft";
 
 export default function Quiz() {
-  const [allPokemons, setAllPokemons] = useState<AxiosResponse<any, any>[]>();
+  // const [allPokemons, setAllPokemons] = useState<AxiosResponse<any, any>[]>();
   const [randomPokemons, setRandomPokemons] = useState<any[]>();
   const [loading, setLoading] = useState(true);
   // const randomPokemon = Math.floor(Math.random() * 1000);
@@ -34,7 +34,7 @@ export default function Quiz() {
     var response = axios
       .all(endpoints.map((endpoint) => axios.get(endpoint)))
       .then((res) => {
-        setAllPokemons(res);
+        // setAllPokemons(res);
         shuffle(res);
         setLoading(false);
       });
@@ -99,7 +99,7 @@ export default function Quiz() {
           )}
         </Content>
       </Wrapper>
-      <PersistentDrawerLeft />
+      {/* <PersistentDrawerLeft /> */}
     </>
   );
 }

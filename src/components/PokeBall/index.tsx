@@ -29,7 +29,7 @@ function style(mediaQuery: boolean) {
     height: "100%",
     backgroundImage: mediaQuery
       ? "url(/img/whosThatPokeHorizontal.png)"
-      : "url(/img/whosThatPokeMobilel.png)",
+      : "url(/img/whosThatPokeMobile.png)",
     backgroundSize: mediaQuery ? "cover" : "contain",
     backgroundRepeat: "noRepeat",
     backgroundPosition: "center",
@@ -101,7 +101,6 @@ export const PokeBall: React.FC<{
                   setVisible(false);
                 }}
               />
-              ;
             </Box>
           </Modal>
         </>

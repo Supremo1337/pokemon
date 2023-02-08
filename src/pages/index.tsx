@@ -1,6 +1,7 @@
 import { Inter } from "@next/font/google";
 import Quiz from "@/components/Quiz";
 import styled from "styled-components";
+import BasicModal from "@/components/BasicModal";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,6 +24,7 @@ export default function Home() {
   return (
     <>
       <Content>
+        <BasicModal />
         <Quiz />
       </Content>
     </>

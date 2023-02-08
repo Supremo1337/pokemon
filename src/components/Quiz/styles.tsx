@@ -5,6 +5,7 @@ interface TextProps {
   letterSpacing?: string;
   margin?: string;
   cursor?: string;
+  color?: string;
 }
 
 export const Wrapper = styled.div`
@@ -64,6 +65,7 @@ export const Text = styled.label<TextProps>`
   letter-spacing: ${(props) => props.letterSpacing};
   margin: ${(props) => props.margin};
   cursor: ${(props) => props.cursor};
+  color: ${(props) => props.color};
 `;
 
 export const NumbersBox = styled.div`

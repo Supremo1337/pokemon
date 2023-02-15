@@ -1,11 +1,14 @@
 import {
-  Wrapper,
   Content,
-  DivToGroupShuffleButtonAndText,
+  GroupTextsDiv,
   NumbersBox,
   RowOfTheNumbers,
   ShuffleButton,
-  Text,
+  Title,
+  Subtitle,
+  Divider,
+  Credits,
+  Gif,
 } from "./styles";
 import React, { useEffect, useState } from "react";
 import axios, { AxiosResponse } from "axios";
@@ -58,47 +61,46 @@ export default function Quiz() {
 
   return (
     <>
-      <Wrapper>
-        <Content>
-          {!loading ? (
-            <>
-              <DivToGroupShuffleButtonAndText>
-                <Text cursor="" fontSize="3rem" letterSpacing="10px" margin="0">
-                  Quiz
-                </Text>
-                <ShuffleButton onClick={() => getPokemons()}>
-                  <Shuffle size={24} color="#5f5f77" cursor="pointer" />
-                  <Text
-                    cursor="pointer"
-                    fontSize="1.4rem"
-                    letterSpacing="5px"
-                    margin="0 0 6px 0"
-                  >
-                    Aleatorizar
-                  </Text>
-                </ShuffleButton>
-              </DivToGroupShuffleButtonAndText>
-              <NumbersBox>
-                <RowOfTheNumbers>
-                  {randomPokemons?.slice(0, 10).map((res, index) => {
-                    return (
-                      <>
-                        <PokeBall
-                          number={index + 1}
-                          key={index}
-                          pokemon={res}
-                        />
-                      </>
-                    );
-                  })}
-                </RowOfTheNumbers>
-              </NumbersBox>
-            </>
-          ) : (
-            <Loading />
-          )}
-        </Content>
-      </Wrapper>
+      {/* <Wrapper> */}
+      <Content>
+        {!loading ? (
+          <>
+            <GroupTextsDiv>
+              <Title>Pokémon Quiz</Title>
+              <Subtitle fontSize="2.2rem">
+                Selecione uma Pokébola para começar
+              </Subtitle>
+            </GroupTextsDiv>
+            <Divider />
+            <NumbersBox>
+              <RowOfTheNumbers>
+                {randomPokemons?.slice(0, 8).map((res, index) => {
+                  return (
+                    <>
+                      <PokeBall number={index + 1} key={index} pokemon={res} />
+                    </>
+                  );
+                })}
+              </RowOfTheNumbers>
+            </NumbersBox>
+            <ShuffleButton onClick={() => getPokemons()}>
+              <Shuffle size={24} color="#fff" cursor="pointer" />
+              <Subtitle fontSize="1.8rem" margin="0">
+                Aleatorizar
+              </Subtitle>
+            </ShuffleButton>
+            <Credits>
+              <Gif />
+              <Subtitle fontSize="1.8rem">
+                Criado por <span>Lucas Wyllame</span>
+              </Subtitle>
+            </Credits>
+          </>
+        ) : (
+          <Loading />
+        )}
+      </Content>
+      {/* </Wrapper> */}
       {/* <PersistentDrawerLeft /> */}
     </>
   );

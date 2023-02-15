@@ -1,8 +1,8 @@
 @font-face {
-  src: url(../fonts/PokemonSolid.ttf) format("truetype");
+  src: url(../fonts/grifterbold.otf) format("opentype");
   font-weight: normal;
   font-style: normal;
-  font-family: Pokemon;
+  font-family: GRIFTER;
 }
 
 * {
@@ -20,7 +20,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: Pokemon;
+  font-family: GRIFTER, "Poppins", sans-serif;
   font-size: 62.5%;
 }
 

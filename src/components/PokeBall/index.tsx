@@ -25,20 +25,23 @@ function style(mediaQuery: boolean) {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: "100%",
+    width: mediaQuery ? "100%" : "375px",
     height: "100%",
     backgroundImage: mediaQuery
       ? "url(/img/whosThatPokeHorizontal.png)"
       : "url(/img/whosThatPokeMobile.png)",
     backgroundSize: mediaQuery ? "cover" : "contain",
-    backgroundRepeat: "noRepeat",
+    backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
     border: "2px solid #000",
     boxShadow: 24,
-    p: 4,
-    display: "grid",
-    gridTemplateColumns: "1fr",
-    gridTemplateRows: "479px 173px 82px",
+    p: mediaQuery ? 4 : 1,
+    display: mediaQuery ? "grid" : "flex",
+    flexDirection: "column",
+    gridTemplateColumns: mediaQuery ? "1fr 1fr" : "none",
+    gridTemplateRows: mediaQuery ? "706px 168px" : "none",
+    alignItems: mediaQuery ? "center" : "normal",
+    justifyItems: mediaQuery ? "center" : "normal",
   };
 }
 
@@ -55,7 +58,7 @@ export const PokeBall: React.FC<{
   };
 
   const [visible, setVisible] = useState(true);
-  const matches = useMediaQuery("(min-width: 1024px)");
+  const matches = useMediaQuery("(min-width: 1180px)");
 
   return (
     <>
@@ -69,7 +72,7 @@ export const PokeBall: React.FC<{
             onClick={handleOpen}
             key={pokemon.name}
           >
-            <CirclesNumbers>{`${number}`}</CirclesNumbers>
+            {/* <CirclesNumbers>{`${number}`}</CirclesNumbers> */}
           </Content>
           <Modal open={open}>
             <Box sx={{ ...style(matches) }}>

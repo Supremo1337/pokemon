@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
-import { Text } from "../Quiz/styles";
+import { Title } from "../Quiz/styles";
 
 const style = {
   position: "absolute" as "absolute",
@@ -33,9 +33,9 @@ export default function BasicModal() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Text color="#000" fontSize="1.4rem" letterSpacing="2px">
+          <Title color="#000" fontSize="1.4rem" letterSpacing="2px">
             Como usar:
-          </Text>
+          </Title>
           <ol
             style={{ color: "#000", fontSize: "1.4rem", letterSpacing: "2px" }}
           >

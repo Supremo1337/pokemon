@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="112.986" height="114.986" viewBox="0 0 112.986 114.986">
+  <defs>
+    <filter id="Caminho_8" x="0" y="0" width="112.986" height="114.986" filterUnits="userSpaceOnUse">
+      <feOffset dx="3" dy="5" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="1" result="blur"/>
+      <feFlood flood-opacity="0.09"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="pokeball-pokemon-svgrepo-com_2_" data-name="pokeball-pokemon-svgrepo-com (2)" transform="translate(0 -0.001)">
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Caminho_8)">
+      <path id="Caminho_8-2" data-name="Caminho 8" d="M102.781,32.672a53.654,53.654,0,1,0,4.206,20.822A53.325,53.325,0,0,0,102.781,32.672Z" transform="translate(0 0)" fill="#e6e9ed"/>
+    </g>
+    <path id="Caminho_1" data-name="Caminho 1" d="M102.781,31.987A52.16,52.16,0,0,0,91.321,15.34a53.458,53.458,0,0,0-17-11.221,54.715,54.715,0,0,0-41.646,0,53.411,53.411,0,0,0-17,11.221A52.168,52.168,0,0,0,4.205,31.987a51.517,51.517,0,0,0,0,40.773A52.167,52.167,0,0,0,15.667,89.4a53.352,53.352,0,0,0,17,11.223,54.715,54.715,0,0,0,41.646,0,53.415,53.415,0,0,0,17-11.223,52.165,52.165,0,0,0,11.46-16.644,51.515,51.515,0,0,0,0-40.773Z" transform="translate(0 0)" fill="#ff3464"/>
+    <path id="Caminho_2" data-name="Caminho 2" d="M.1,263.18A53.479,53.479,0,0,0,91.4,299.5a53.34,53.34,0,0,0,15.646-36.323Z" transform="translate(-0.081 -208.184)" fill="#e6e9ed"/>
+    <path id="Caminho_3" data-name="Caminho 3" d="M106.731,238.885q.255-2.615.255-5.27a54.675,54.675,0,0,0-.32-5.911c-2.658.41-6.475.944-11.284,1.474a387.232,387.232,0,0,1-41.89,2.209,387.189,387.189,0,0,1-41.888-2.209c-4.811-.531-8.626-1.064-11.284-1.474A54.254,54.254,0,0,0,0,233.615q0,2.654.255,5.27a367.144,367.144,0,0,0,53.238,3.643A367.146,367.146,0,0,0,106.731,238.885Z" transform="translate(0 -180.121)" fill="#222d3d"/>
+    <path id="Caminho_5" data-name="Caminho 5" d="M180.055,170.66a20.059,20.059,0,1,0,20.06,20.06A20.083,20.083,0,0,0,180.055,170.66Zm0,28.978a8.917,8.917,0,1,1,8.913-8.918A8.928,8.928,0,0,1,180.055,199.638Z" transform="translate(-126.562 -134.997)" fill="#222d3d"/>
+    <path id="Caminho_7" data-name="Caminho 7" d="M4.205,74.318a53.455,53.455,0,0,0,49.288,32.669q1.119,0,2.228-.046c-6.434-.261-6.409-1.659-12.325-4.16a53.522,53.522,0,0,1,0-98.575c5.916-2.5,5.891-3.9,12.325-4.16Q54.612,0,53.493,0A53.521,53.521,0,0,0,4.205,74.318Z" opacity="0.04"/>
+    <ellipse id="Elipse_1" data-name="Elipse 1" cx="9.508" cy="6.896" rx="9.508" ry="6.896" transform="matrix(0.839, 0.545, -0.545, 0.839, 76.964, 7.219)" fill="#fff" opacity="0.13"/>
+    <path id="Caminho_4" data-name="Caminho 4" d="M231.7,227.848a14.522,14.522,0,1,1-14.523-14.519A14.523,14.523,0,0,1,231.7,227.848Z" transform="translate(-163.686 -172.126)" fill="#f3f3f3"/>
+  </g>
+</svg>

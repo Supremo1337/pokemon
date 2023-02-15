@@ -5,14 +5,13 @@ import BasicModal from "@/components/BasicModal";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const Content = styled.div`
+const Content = styled.div`
   width: 100vw;
   height: 100vh;
-  /* background-color: pink; */
-  background-image: url("/img/background-quiz.png");
-  background-size: cover;
+  background-color: #181821;
+  /* background-size: cover; */
   background-repeat: no-repeat;
-  background-position: center;
+  /* background-position: center; */
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -20,11 +19,28 @@ export const Content = styled.div`
   justify-content: center;
 `;
 
+const UnownQuestion2 = styled.div`
+  display: none;
+  @media (min-width: 1024px) {
+    display: flex;
+    width: 659px;
+    height: 100vh;
+    background-image: url("/img/UnownQuestion.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    mix-blend-mode: soft-light;
+    align-self: flex-end;
+    position: relative;
+    z-index: 0;
+  }
+`;
+
 export default function Home() {
   return (
     <>
       <Content>
-        <BasicModal />
+        <UnownQuestion2 />
+        {/* <BasicModal /> */}
         <Quiz />
       </Content>
     </>

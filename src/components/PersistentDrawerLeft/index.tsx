@@ -12,7 +12,7 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ListItem from "@mui/material/ListItem";
 import { AppBar, IconGen, ListItemRow } from "./styles";
-import { Text } from "../Quiz/styles";
+import { Title } from "../Quiz/styles";
 import CheckBox, {
   CheckboxContainer,
   HiddenCheckbox,
@@ -92,9 +92,9 @@ export default function PersistentDrawerLeft() {
             <MenuIcon />
           </IconButton>
 
-          <Text fontSize="2rem" letterSpacing="5px">
+          <Title fontSize="2rem" letterSpacing="5px">
             Filtre as gerações
-          </Text>
+          </Title>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -127,7 +127,7 @@ export default function PersistentDrawerLeft() {
                 <ListItemRow>
                   <IconGen bgImage={res.iconOfTheGeneration} />
                   <CheckBox />
-                  <Text fontSize="1.6rem">{res.numberOfTheGeneration}</Text>
+                  <Title fontSize="1.6rem">{res.numberOfTheGeneration}</Title>
                 </ListItemRow>
               </ListItem>
             );

@@ -8,6 +8,12 @@ interface TitleProps {
   color?: string;
 }
 
+interface GifProps {
+  width?: string;
+  height?: string;
+  bgImage?: string;
+}
+
 export const Content = styled.div`
   width: 100%;
   height: auto;
@@ -42,9 +48,12 @@ export const GroupTextsDiv = styled.div`
 `;
 
 export const Title = styled.h1<TitleProps>`
-  font-size: 38px;
+  font-size: 2.5rem;
   margin: 0;
   color: #fff;
+  @media (min-width: 1024px) {
+    font-size: 3.8rem;
+  }
 `;
 
 export const Subtitle = styled.label<TitleProps>`
@@ -105,10 +114,13 @@ export const ShuffleButton = styled.div`
   background: #23242e;
   box-shadow: 8px 9px 8px #0000001a;
   border-radius: 6px;
-  display: Flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
+  cursor: pointer;
+  font-size: 1.8rem;
+  font-family: "Poppins";
   @media (min-width: 1024px) {
     margin: 30px 0 9px 0;
   }
@@ -123,11 +135,12 @@ export const Credits = styled.div`
   align-items: center;
 `;
 
-export const Gif = styled.div`
-  width: 39px;
-  height: 39px;
-  background-image: url("/img/lucario.gif");
+export const Gif = styled.div<GifProps>`
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
+  background-image: ${(props) => props.bgImage};
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  margin-bottom: 10px;
 `;

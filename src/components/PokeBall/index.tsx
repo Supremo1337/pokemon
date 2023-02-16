@@ -1,14 +1,23 @@
 import {
-  Content,
+  UniquePokeball,
   CirclesNumbers,
   WhosThatPokemonImage,
   PokemonName,
-  InterrogationButton,
+  ActionsButton,
+  RedDiv,
+  TitleDiv,
+  Content,
+  BorderRedTitle,
+  PokemonLogo,
+  ImageBox,
+  DivToGroupButtonsAndImagesOnlyInDesktop,
+  ButtonsAndLogoDesktop,
 } from "./styles";
 import { useMediaQuery } from "@mui/material";
 import { useState } from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
+import { Subtitle, Title } from "../Quiz/styles";
 
 export interface IPokemonInfoProps {
   gridColumn: string;
@@ -25,23 +34,16 @@ function style(mediaQuery: boolean) {
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: mediaQuery ? "100%" : "375px",
+    width: "100%",
     height: "100%",
-    backgroundImage: mediaQuery
-      ? "url(/img/whosThatPokeHorizontal.png)"
-      : "url(/img/whosThatPokeMobile.png)",
-    backgroundSize: mediaQuery ? "cover" : "contain",
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "center",
+    background: "#181821",
     border: "2px solid #000",
     boxShadow: 24,
-    p: mediaQuery ? 4 : 1,
-    display: mediaQuery ? "grid" : "flex",
+    display: "flex",
+    alignItems: "flex-end",
+    justifyItems: "flex-end",
     flexDirection: "column",
-    gridTemplateColumns: mediaQuery ? "1fr 1fr" : "none",
-    gridTemplateRows: mediaQuery ? "706px 168px" : "none",
-    alignItems: mediaQuery ? "center" : "normal",
-    justifyItems: mediaQuery ? "center" : "normal",
+    outline: "none",
   };
 }
 
@@ -64,7 +66,7 @@ export const PokeBall: React.FC<{
     <>
       {pokemon && (
         <>
-          <Content
+          <UniquePokeball
             gridColumn={pokemon.gridColumn}
             gridRow={pokemon.gridRow}
             gridColumnDesktop={pokemon.gridColumnDesktop}
@@ -72,38 +74,60 @@ export const PokeBall: React.FC<{
             onClick={handleOpen}
             key={pokemon.name}
           >
-            {/* <CirclesNumbers>{`${number}`}</CirclesNumbers> */}
-          </Content>
+            <CirclesNumbers>{`${number}`}</CirclesNumbers>
+          </UniquePokeball>
           <Modal open={open}>
             <Box sx={{ ...style(matches) }}>
-              {visible && "1" ? (
-                <WhosThatPokemonImage
-                  bgImage={
-                    `url(${pokemon.data.sprites.other["official-artwork"].front_default})` ||
-                    ""
-                  }
-                  filter={"brightness(0%)"}
-                />
-              ) : (
-                <>
-                  <WhosThatPokemonImage
-                    bgImage={
-                      `url(${pokemon.data.sprites.other["official-artwork"].front_default})` ||
-                      ""
-                    }
-                    // bgImage={`url(/img/snorlaxColorido.png)` || ""}
-                  />
-                  <PokemonName onClick={handleClose}>
-                    {pokemon?.data.name}
-                  </PokemonName>
-                  {console.log("Chegou aq", open)}
-                </>
-              )}
-              <InterrogationButton
-                onClick={() => {
-                  setVisible(false);
-                }}
-              />
+              <Content>
+                <TitleDiv>
+                  <BorderRedTitle />
+                  <Title>Quem é esse Pokémon?</Title>
+                </TitleDiv>
+                <DivToGroupButtonsAndImagesOnlyInDesktop>
+                  <PokemonLogo display="block" displayDesktop="none" />
+                  <ImageBox>
+                    {visible && "1" ? (
+                      <WhosThatPokemonImage
+                        bgImage={
+                          `url(${pokemon.data.sprites.other["official-artwork"].front_default})` ||
+                          ""
+                        }
+                        filter={"brightness(0%)"}
+                      />
+                    ) : (
+                      <>
+                        <WhosThatPokemonImage
+                          bgImage={
+                            `url(${pokemon.data.sprites.other["official-artwork"].front_default})` ||
+                            ""
+                          }
+                          // bgImage={`url(/img/snorlaxColorido.png)` || ""}
+                        />
+                      </>
+                    )}
+                  </ImageBox>
+                  <ButtonsAndLogoDesktop>
+                    <PokemonLogo display="none" displayDesktop="block" />
+                    <ActionsButton
+                      margin="28px 0 22px 0"
+                      onClick={() => {
+                        setVisible(false);
+                      }}
+                    >
+                      Revelar
+                    </ActionsButton>
+                    <ActionsButton onClick={handleClose}>Fechar</ActionsButton>
+                  </ButtonsAndLogoDesktop>
+                </DivToGroupButtonsAndImagesOnlyInDesktop>
+              </Content>
+              <RedDiv>
+                <Subtitle fontSize="2rem">O Pokémon secreto é...</Subtitle>
+                {visible && "1" ? (
+                  ""
+                ) : (
+                  <PokemonName>{pokemon?.data.name}</PokemonName>
+                )}
+              </RedDiv>
             </Box>
           </Modal>
         </>

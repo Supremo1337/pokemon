@@ -24,7 +24,9 @@ export default function Quiz() {
   // const randomPokemon = Math.floor(Math.random() * 1000);
 
   useEffect(() => {
-    getPokemons();
+    // setTimeout(() => {
+      getPokemons();
+    // }, 900000);
   }, []);
 
   const getPokemons = () => {
@@ -61,7 +63,6 @@ export default function Quiz() {
 
   return (
     <>
-      {/* <Wrapper> */}
       <Content>
         {!loading ? (
           <>
@@ -76,18 +77,14 @@ export default function Quiz() {
               <RowOfTheNumbers>
                 {randomPokemons?.slice(0, 8).map((res, index) => {
                   return (
-                    <>
-                      <PokeBall number={index + 1} key={index} pokemon={res} />
-                    </>
+                    <PokeBall key={index} number={index + 1} pokemon={res} />
                   );
                 })}
               </RowOfTheNumbers>
             </NumbersBox>
             <ShuffleButton onClick={() => getPokemons()}>
-              <Shuffle size={24} color="#fff" cursor="pointer" />
-              <Subtitle fontSize="1.8rem" margin="0">
-                Aleatorizar
-              </Subtitle>
+              <Shuffle size={24} color="#fff" />
+              Aleatorizar
             </ShuffleButton>
             <Credits>
               <Gif />
@@ -100,7 +97,6 @@ export default function Quiz() {
           <Loading />
         )}
       </Content>
-      {/* </Wrapper> */}
       {/* <PersistentDrawerLeft /> */}
     </>
   );

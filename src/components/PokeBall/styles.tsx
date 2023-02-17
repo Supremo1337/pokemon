@@ -22,8 +22,8 @@ export interface ResponsiveProps {
 }
 
 export const UniquePokeball = styled.div<ContentProps>`
-  width: 100px;
-  height: 100px;
+  width: 107px;
+  height: 107px;
   background-image: url("/img/pokeball.svg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -33,8 +33,9 @@ export const UniquePokeball = styled.div<ContentProps>`
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  :visited {
-    background:red;
+  transition: transform 0.3s ease-in-out;
+  :hover {
+    transform: rotate(45deg);
   }
 `;
 
@@ -197,7 +198,7 @@ export const RedDiv = styled.div`
 `;
 
 export const PokemonName = styled.div`
-  width: 329px;
+  width: max-content;
   height: 68px;
   display: flex;
   justify-content: center;
@@ -217,6 +218,7 @@ export const PokemonName = styled.div`
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   white-space: normal;
+  padding: 0 60px;
   @media (min-width: 1024px) {
     font-size: 3.8rem;
   }

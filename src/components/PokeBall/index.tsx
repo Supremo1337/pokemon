@@ -52,16 +52,22 @@ export const PokeBall: React.FC<{
   pokemon: IPokemonInfoProps;
   number: number;
 }> = ({ pokemon, number }) => {
+  const [active, setActive] = useState(false);
   const [open, setOpen] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const matches = useMediaQuery("(min-width: 1180px)");
+
+  const handleClick = () => {
+    setActive(!active);
+  };
+
   const handleOpen = () => {
     setOpen(true);
+    handleClick();
   };
   const handleClose = () => {
     setOpen(false);
   };
-
-  const [visible, setVisible] = useState(true);
-  const matches = useMediaQuery("(min-width: 1180px)");
 
   return (
     <>
@@ -74,6 +80,7 @@ export const PokeBall: React.FC<{
             gridRowDesktop={pokemon.gridRowDesktop}
             onClick={handleOpen}
             key={pokemon.name}
+            style={{ opacity: active ? "0.1" : "1" }}
           >
             <CirclesNumbers>{`${number}`}</CirclesNumbers>
           </UniquePokeball>
@@ -133,9 +140,7 @@ export const PokeBall: React.FC<{
                   {visible && "1" ? (
                     ""
                   ) : (
-                    <PokemonName>
-                      {pokemon?.data.name}
-                    </PokemonName>
+                    <PokemonName>{pokemon?.data.name}</PokemonName>
                   )}
                 </TESTE>
               </RedDiv>

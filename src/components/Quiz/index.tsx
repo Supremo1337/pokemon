@@ -25,7 +25,7 @@ export default function Quiz() {
 
   useEffect(() => {
     // setTimeout(() => {
-      getPokemons();
+    getPokemons();
     // }, 900000);
   }, []);
 
@@ -87,7 +87,7 @@ export default function Quiz() {
               Aleatorizar
             </ShuffleButton>
             <Credits>
-              <Gif />
+              <Gif width="39px" height="31px" bgImage={`url("/img/lucario.gif")`} />
               <Subtitle fontSize="1.8rem">
                 Criado por <span>Lucas Wyllame</span>
               </Subtitle>

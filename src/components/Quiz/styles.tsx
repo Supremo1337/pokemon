@@ -6,6 +6,8 @@ interface TitleProps {
   margin?: string;
   cursor?: string;
   color?: string;
+  display?: string;
+  displayDesktop?: string;
 }
 
 interface GifProps {
@@ -62,9 +64,13 @@ export const Subtitle = styled.label<TitleProps>`
   color: ${(props) => props.color};
   font-family: "Poppins";
   text-align: center;
+  display: ${(props) => props.display};
   span {
     font-weight: 500;
     font-size: 1.8rem;
+  }
+  @media (min-width: 1024px) {
+    display: ${(props) => props.displayDesktop};
   }
 `;
 

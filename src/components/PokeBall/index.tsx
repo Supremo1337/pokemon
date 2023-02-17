@@ -1,7 +1,7 @@
 import {
   UniquePokeball,
   CirclesNumbers,
-  WhosThatPokemonImage,
+  WhosThatPokemon,
   PokemonName,
   ActionsButton,
   RedDiv,
@@ -9,9 +9,10 @@ import {
   Content,
   BorderRedTitle,
   PokemonLogo,
-  ImageBox,
+  WhosThatPokemonImageBox,
   DivToGroupButtonsAndImagesOnlyInDesktop,
   ButtonsAndLogoDesktop,
+  TESTE,
 } from "./styles";
 import { useMediaQuery } from "@mui/material";
 import { useState } from "react";
@@ -85,9 +86,9 @@ export const PokeBall: React.FC<{
                 </TitleDiv>
                 <DivToGroupButtonsAndImagesOnlyInDesktop>
                   <PokemonLogo display="block" displayDesktop="none" />
-                  <ImageBox>
+                  <WhosThatPokemonImageBox>
                     {visible && "1" ? (
-                      <WhosThatPokemonImage
+                      <WhosThatPokemon
                         bgImage={
                           `url(${pokemon.data.sprites.other["official-artwork"].front_default})` ||
                           ""
@@ -96,7 +97,7 @@ export const PokeBall: React.FC<{
                       />
                     ) : (
                       <>
-                        <WhosThatPokemonImage
+                        <WhosThatPokemon
                           bgImage={
                             `url(${pokemon.data.sprites.other["official-artwork"].front_default})` ||
                             ""
@@ -105,7 +106,7 @@ export const PokeBall: React.FC<{
                         />
                       </>
                     )}
-                  </ImageBox>
+                  </WhosThatPokemonImageBox>
                   <ButtonsAndLogoDesktop>
                     <PokemonLogo display="none" displayDesktop="block" />
                     <ActionsButton
@@ -121,12 +122,22 @@ export const PokeBall: React.FC<{
                 </DivToGroupButtonsAndImagesOnlyInDesktop>
               </Content>
               <RedDiv>
-                <Subtitle fontSize="2rem">O Pokémon secreto é...</Subtitle>
-                {visible && "1" ? (
-                  ""
-                ) : (
-                  <PokemonName>{pokemon?.data.name}</PokemonName>
-                )}
+                <TESTE>
+                  <Subtitle
+                    display="flex"
+                    displayDesktop="none"
+                    fontSize="2rem"
+                  >
+                    O Pokémon secreto é...
+                  </Subtitle>
+                  {visible && "1" ? (
+                    ""
+                  ) : (
+                    <PokemonName>
+                      {pokemon?.data.name}
+                    </PokemonName>
+                  )}
+                </TESTE>
               </RedDiv>
             </Box>
           </Modal>

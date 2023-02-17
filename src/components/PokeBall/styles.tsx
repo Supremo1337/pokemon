@@ -16,7 +16,7 @@ interface ActionsButtonProps {
   margin?: string;
 }
 
-interface PokemonLogoProps {
+export interface ResponsiveProps {
   display: string;
   displayDesktop: string;
 }
@@ -33,6 +33,9 @@ export const UniquePokeball = styled.div<ContentProps>`
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  :visited {
+    background:red;
+  }
 `;
 
 export const CirclesNumbers = styled.div`
@@ -45,7 +48,7 @@ export const Content = styled.div`
   width: 100%;
   height: 85%;
   display: flex;
-  background: blue;
+  /* background: blue; */
   padding: 36px 10px;
   flex-direction: column;
   align-items: center;
@@ -58,7 +61,7 @@ export const Content = styled.div`
 export const TitleDiv = styled.div`
   width: 100%;
   height: auto;
-  background: purple;
+  /* background: purple; */
   display: flex;
   align-items: center;
   gap: 10px;
@@ -73,7 +76,7 @@ export const DivToGroupButtonsAndImagesOnlyInDesktop = styled.div`
     width: 100%;
     height: 100%;
     display: flex;
-    background: pink;
+    /* background: pink; */
     flex-direction: row;
     justify-content: space-between;
   }
@@ -85,10 +88,15 @@ export const ButtonsAndLogoDesktop = styled.div`
   justify-content: center;
   flex-direction: column;
   @media (min-width: 1024px) {
-    width: 50%;
+    width: 44%;
     height: 100%;
     display: flex;
-    background: yellow;
+    /* background: yellow; */
+    padding: 0 20px;
+  }
+
+  @media (min-width: 1366px) {
+    width: 50%;
   }
 `;
 
@@ -103,7 +111,7 @@ export const BorderRedTitle = styled.div`
   }
 `;
 
-export const PokemonLogo = styled.div<PokemonLogoProps>`
+export const PokemonLogo = styled.div<ResponsiveProps>`
   width: 299px;
   height: 110px;
   background-image: url("/img/pokemonLogo.png");
@@ -112,13 +120,17 @@ export const PokemonLogo = styled.div<PokemonLogoProps>`
   margin: 28px 0 32px 0;
   display: ${(props) => props.display};
   @media (min-width: 1024px) {
+    width: 366px;
+    height: 135.17px;
+    display: ${(props) => props.displayDesktop};
+  }
+  @media (min-width: 1366px) {
     width: 463px;
     height: 171px;
-    display: ${(props) => props.displayDesktop};
   }
 `;
 
-export const ImageBox = styled.div`
+export const WhosThatPokemonImageBox = styled.div`
   width: 291px;
   height: 265px;
   display: flex;
@@ -129,15 +141,20 @@ export const ImageBox = styled.div`
   border-radius: 21px;
   padding: 20px;
   @media (min-width: 1024px) {
+    width: 450px;
+    height: 413.71px;
+    order: -1;
+  }
+  @media (min-width: 1366px) {
     width: 650px;
     height: 610px;
-    order: -1;
+    top: 92px;
     position: relative;
     top: 92px;
   }
 `;
 
-export const WhosThatPokemonImage = styled.div<WhosThatPokemonImageProps>`
+export const WhosThatPokemon = styled.div<WhosThatPokemonImageProps>`
   width: 100%;
   height: 100%;
   background-image: ${(props) => props.bgImage};
@@ -174,6 +191,8 @@ export const RedDiv = styled.div`
   padding: 12px 0;
   @media (min-width: 1024px) {
     height: 20%;
+    align-items: flex-end;
+    padding: 0 56px;
   }
 `;
 
@@ -198,7 +217,21 @@ export const PokemonName = styled.div`
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   white-space: normal;
-  @media (min-width: 1180px) {
+  @media (min-width: 1024px) {
     font-size: 3.8rem;
+  }
+`;
+
+export const TESTE = styled.div`
+  @media (min-width: 1024px) {
+    /* background: green; */
+    height: 100%;
+    width: 44%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  @media (min-width: 1366px) {
+    width: 50%;
   }
 `;

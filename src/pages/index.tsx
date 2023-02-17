@@ -15,24 +15,36 @@ const Content = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding: 10px;
+  /* padding: 10px; */
   justify-content: center;
 `;
 
 const UnownQuestion2 = styled.div`
-  display: none;
+  width: 64%;
+  height: 100vh;
+  display: flex;
+  background-image: url("/img/UnownQuestion.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  mix-blend-mode: soft-light;
+  position: absolute;
+  z-index: 0;
+  align-self: flex-end;
   @media (min-width: 1024px) {
-    display: flex;
-    width: 659px;
-    height: 100vh;
-    background-image: url("/img/UnownQuestion.svg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    mix-blend-mode: soft-light;
-    align-self: flex-end;
     position: relative;
-    z-index: 0;
+    display: flex;
+    width: 50%;
+    height: 100vh;
   }
+  @media (min-width: 1443px) {
+    /* width: 723px; */
+  }
+  @media (min-width: 1570px) {
+    /* width: 787px; */
+  }
+  /* @media (min-width: 1024px) {
+    width: 723px;
+  } */
 `;
 
 export default function Home() {

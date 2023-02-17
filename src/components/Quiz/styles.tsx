@@ -17,13 +17,14 @@ interface GifProps {
 }
 
 export const Content = styled.div`
-  width: 100%;
+  width: 355px;
   height: auto;
   display: flex;
   align-items: center;
   flex-direction: column;
   padding: 10px;
   gap: 15px;
+  z-index: 1;
   /* background-color: purple; */
   @media (min-width: 1024px) {
     width: 732px;
@@ -38,7 +39,7 @@ export const Content = styled.div`
 
 export const GroupTextsDiv = styled.div`
   width: auto;
-  height: 125px;
+  height: auto;
   display: flex;
   /* background-color: blue; */
   flex-direction: column;

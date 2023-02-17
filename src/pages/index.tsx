@@ -1,7 +1,7 @@
 import { Inter } from "@next/font/google";
 import Quiz from "@/components/Quiz";
 import styled from "styled-components";
-import BasicModal from "@/components/BasicModal";
+import BasicModal from "@/components/TutorialModal";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,6 +17,7 @@ const Content = styled.div`
   flex-direction: column;
   /* padding: 10px; */
   justify-content: center;
+  overflow-y: hidden;
 `;
 
 const UnownQuestion2 = styled.div`
@@ -36,15 +37,6 @@ const UnownQuestion2 = styled.div`
     width: 50%;
     height: 100vh;
   }
-  @media (min-width: 1443px) {
-    /* width: 723px; */
-  }
-  @media (min-width: 1570px) {
-    /* width: 787px; */
-  }
-  /* @media (min-width: 1024px) {
-    width: 723px;
-  } */
 `;
 
 export default function Home() {
@@ -52,7 +44,7 @@ export default function Home() {
     <>
       <Content>
         <UnownQuestion2 />
-        {/* <BasicModal /> */}
+        <BasicModal />
         <Quiz />
       </Content>
     </>

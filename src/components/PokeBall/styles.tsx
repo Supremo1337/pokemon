@@ -16,9 +16,13 @@ interface ActionsButtonProps {
   margin?: string;
 }
 
-export interface ResponsiveProps {
+export interface PokemonLogoProps {
   display: string;
   displayDesktop: string;
+}
+
+export interface RedDivProps {
+  heightDesktop: string;
 }
 
 export const UniquePokeball = styled.div<ContentProps>`
@@ -112,7 +116,7 @@ export const BorderRedTitle = styled.div`
   }
 `;
 
-export const PokemonLogo = styled.div<ResponsiveProps>`
+export const PokemonLogo = styled.div<PokemonLogoProps>`
   width: 299px;
   height: 110px;
   background-image: url("/img/pokemonLogo.png");
@@ -181,7 +185,7 @@ export const ActionsButton = styled.button<ActionsButtonProps>`
   }
 `;
 
-export const RedDiv = styled.div`
+export const RedDiv = styled.div<RedDivProps>`
   width: 100%;
   height: 15%;
   background: #ff3464;
@@ -191,7 +195,7 @@ export const RedDiv = styled.div`
   flex-direction: column;
   padding: 12px 0;
   @media (min-width: 1024px) {
-    height: 20%;
+    height: ${(props) => props.heightDesktop};
     align-items: flex-end;
     padding: 0 56px;
   }

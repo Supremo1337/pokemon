@@ -16,6 +16,7 @@ import Loading from "../Loading";
 import { Shuffle } from "phosphor-react";
 import { PokeBall } from "../PokeBall";
 import PersistentDrawerLeft from "../PersistentDrawerLeft";
+import { RedDiv } from "../PokeBall/styles";
 
 export default function Quiz() {
   // const [allPokemons, setAllPokemons] = useState<AxiosResponse<any, any>[]>();
@@ -32,7 +33,7 @@ export default function Quiz() {
   const getPokemons = () => {
     setLoading(true);
     var endpoints = [];
-    for (var i = 1; i < 1008; i++) {
+    for (var i = 1; i < 5; i++) {
       endpoints.push(`https://pokeapi.co/api/v2/pokemon/${i}/`);
     }
     console.log(endpoints, "ENDPOINTS AQQQQQ");
@@ -87,7 +88,11 @@ export default function Quiz() {
               Aleatorizar
             </ShuffleButton>
             <Credits>
-              <Gif width="39px" height="31px" bgImage={`url("/img/lucario.gif")`} />
+              <Gif
+                width="39px"
+                height="31px"
+                bgImage={`url("/img/lucario.gif")`}
+              />
               <Subtitle fontSize="1.8rem">
                 Criado por <span>Lucas Wyllame</span>
               </Subtitle>
@@ -97,6 +102,7 @@ export default function Quiz() {
           <Loading />
         )}
       </Content>
+      <RedDiv heightDesktop="13px" />
       {/* <PersistentDrawerLeft /> */}
     </>
   );

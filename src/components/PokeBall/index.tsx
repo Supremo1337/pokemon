@@ -128,7 +128,7 @@ export const PokeBall: React.FC<{
                   </ButtonsAndLogoDesktop>
                 </DivToGroupButtonsAndImagesOnlyInDesktop>
               </Content>
-              <RedDiv>
+              <RedDiv heightDesktop="20%">
                 <TESTE>
                   <Subtitle
                     display="flex"

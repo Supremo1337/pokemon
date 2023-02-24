@@ -22,13 +22,14 @@ export interface PokemonLogoProps {
 }
 
 export interface RedDivProps {
+  height: string;
   heightDesktop: string;
 }
 
 export const UniquePokeball = styled.div<ContentProps>`
-  width: 107px;
-  height: 107px;
-  background-image: url("/img/pokeball.svg");
+  width: 90px;
+  height: 90px;
+  background-image: url("/img/Pokeball.svg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -40,6 +41,10 @@ export const UniquePokeball = styled.div<ContentProps>`
   transition: transform 0.3s ease-in-out;
   :hover {
     transform: rotate(45deg);
+  }
+  @media (min-width: 1024px) {
+    width: 107px;
+    height: 107px;
   }
 `;
 
@@ -187,7 +192,7 @@ export const ActionsButton = styled.button<ActionsButtonProps>`
 
 export const RedDiv = styled.div<RedDivProps>`
   width: 100%;
-  height: 15%;
+  height: ${(props) => props.height};
   background: #ff3464;
   display: flex;
   justify-content: space-between;
@@ -229,13 +234,18 @@ export const PokemonName = styled.div`
 `;
 
 export const TESTE = styled.div`
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
   @media (min-width: 1024px) {
+    /* gap: 0; */
     /* background: green; */
     height: 100%;
     width: 44%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
   @media (min-width: 1366px) {
     width: 50%;

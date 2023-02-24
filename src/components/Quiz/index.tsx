@@ -33,7 +33,7 @@ export default function Quiz() {
   const getPokemons = () => {
     setLoading(true);
     var endpoints = [];
-    for (var i = 1; i < 5; i++) {
+    for (var i = 1; i < 9; i++) {
       endpoints.push(`https://pokeapi.co/api/v2/pokemon/${i}/`);
     }
     console.log(endpoints, "ENDPOINTS AQQQQQ");
@@ -102,7 +102,7 @@ export default function Quiz() {
           <Loading />
         )}
       </Content>
-      <RedDiv heightDesktop="13px" />
+      <RedDiv height="1%" heightDesktop="13px" />
       {/* <PersistentDrawerLeft /> */}
     </>
   );

@@ -7,9 +7,8 @@ import BasicTabs from "../BasicTabs";
 
 const style = {
   width: "95%",
-  height: "80%",
+  height: "90%",
   display: "flex",
-  alignItems: "center",
   justifyContent: "space-between",
   flexDirection: "column",
   position: "absolute" as "absolute",
@@ -34,18 +33,15 @@ export default function TutorialModal() {
   }, []);
 
   return (
-    <div>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={style}>
-          <BasicTabs />
-        </Box>
-      </Modal>
-    </div>
+    <Modal
+      open={open}
+      onClose={handleClose}
+      aria-labelledby="modal-modal-title"
+      aria-describedby="modal-modal-description"
+    >
+      <Box sx={style}>
+        <BasicTabs />
+      </Box>
+    </Modal>
   );
 }
-

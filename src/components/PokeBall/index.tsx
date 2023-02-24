@@ -128,11 +128,11 @@ export const PokeBall: React.FC<{
                   </ButtonsAndLogoDesktop>
                 </DivToGroupButtonsAndImagesOnlyInDesktop>
               </Content>
-              <RedDiv heightDesktop="20%">
+              <RedDiv height="15%" heightDesktop="20%">
                 <TESTE>
                   <Subtitle
-                    display="flex"
-                    displayDesktop="none"
+                    // display="flex"
+                    // displayDesktop="none"
                     fontSize="2rem"
                   >
                     O Pokémon secreto é...

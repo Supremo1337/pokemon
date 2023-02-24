@@ -16,8 +16,11 @@ const Content = styled.div`
   align-items: center;
   flex-direction: column;
   /* padding: 10px; */
-  justify-content: center;
+  justify-content: space-between;
   overflow-y: hidden;
+  @media (min-width: 1024px) {
+    justify-content: center;
+  }
 `;
 
 const UnownQuestion2 = styled.div`

@@ -4,12 +4,13 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { Subtitle, Title } from "../Quiz/styles";
-import { TutorialImage } from "../TutorialModal/styles";
+import { TabPanelContent, TutorialImage } from "../TutorialModal/styles";
 
 interface TabPanelProps {
   children?: React.ReactNode;
   index: number;
   value: number;
+  sx: any;
 }
 
 function TabPanel(props: TabPanelProps) {
@@ -39,6 +40,59 @@ function a11yProps(index: number) {
   };
 }
 
+function styledBox1() {
+  return {
+    width: "100%",
+    height: "100%",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    flexDirection: "column",
+  };
+}
+
+function styledBox() {
+  return {
+    width: "150px",
+    height: "20px",
+    // background: "red",
+    borderBottom: 1,
+    borderColor: "divider",
+    // position: "relative",
+    // top: "200px",
+    order: 1,
+  };
+}
+
+function styledTabs() {
+  return {
+    minHeight: "unset",
+    height: "20px",
+  };
+}
+
+function styledTab() {
+  return {
+    background: "#676E78",
+    fontSize: "20px",
+    minWidth: "unset",
+    maxWidth: "unset",
+    minHeight: "unset",
+    width: "15px",
+    height: "15px",
+    borderRadius: "50%",
+    p: "0",
+  };
+}
+
+function tabPanel() {
+  return {
+    display: "flex",
+    gap: "31px",
+    flexDirection: "column",
+  };
+}
+
 export default function BasicTabs() {
   const [value, setValue] = React.useState(0);
 
@@ -47,48 +101,144 @@ export default function BasicTabs() {
   };
 
   return (
-    <Box sx={{ width: "100%" }}>
-      <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+    <Box sx={styledBox1}>
+      <Box sx={styledBox}>
         <Tabs
           value={value}
           onChange={handleChange}
           aria-label="basic tabs example"
+          sx={{
+            ...styledTabs(),
+            "& .MuiTabs-flexContainer": {
+              justifyContent: "space-between",
+            },
+          }}
         >
-          <Tab label="Item One" {...a11yProps(0)} />
-          <Tab label="Item Two" {...a11yProps(1)} />
-          <Tab label="Item Three" {...a11yProps(2)} />
-          <Tab label="Item Four" {...a11yProps(3)} />
+          <Tab
+            sx={{
+              ...styledTab(),
+              "&.Mui-selected": {
+                background: "#FF3464",
+              },
+            }}
+            {...a11yProps(0)}
+          />
+          <Tab
+            sx={{
+              ...styledTab(),
+              "&.Mui-selected": {
+                background: "#FF3464",
+              },
+            }}
+            {...a11yProps(1)}
+          />
+          <Tab
+            sx={{
+              ...styledTab(),
+              "&.Mui-selected": {
+                background: "#FF3464",
+              },
+            }}
+            {...a11yProps(2)}
+          />
+          <Tab
+            sx={{
+              ...styledTab(),
+              "&.Mui-selected": {
+                background: "#FF3464",
+              },
+            }}
+            {...a11yProps(3)}
+          />
+          <Tab
+            sx={{
+              ...styledTab(),
+              "&.Mui-selected": {
+                background: "#FF3464",
+              },
+            }}
+            {...a11yProps(4)}
+          />
         </Tabs>
       </Box>
-      <TabPanel value={value} index={0}>
-        <Title fontSize="1.4rem" letterSpacing="2px">
-          Como Jogar?
-        </Title>
-        <TutorialImage bgImage={`url("/img/tutorialClickPokeball.png")`} />
-        <Subtitle>Pense em qual pensa que é o pokémon</Subtitle>
+      <TabPanel sx={tabPanel} value={value} index={0}>
+        <TabPanelContent>
+          <Title fontSize="1.4rem" letterSpacing="2px">
+            Como Jogar?
+          </Title>
+          <TutorialImage
+            height="463px"
+            bgImage={`url("/img/MobileTutorial/1- tutorialPokeballHightlight.png")`}
+            bgImageLaptop={`url("/img/LaptopTutorial/1- tutorialPokeballHightlight.png")`}
+          />
+          <Subtitle fontSize="1.4rem">
+            Selecione qualquer Pokébola para começar
+          </Subtitle>
+        </TabPanelContent>
       </TabPanel>
-      <TabPanel value={value} index={1}>
-        <Title fontSize="1.4rem" letterSpacing="2px">
-          Como Jogar?
-        </Title>
-        <TutorialImage bgImage={`url("/img/tutorialPokemon.png")`} />
-        <Subtitle>
-          Clique no Botão "Revelar", apos pensar sobre qual é o pokemon
-        </Subtitle>
+      <TabPanel sx={tabPanel} value={value} index={1}>
+        <TabPanelContent>
+          <Title fontSize="1.4rem" letterSpacing="2px">
+            Como Jogar?
+          </Title>
+          <TutorialImage
+            height="463px"
+            bgImage={`url("/img/MobileTutorial/2- tutorialPokemonHidden.png")`}
+            bgImageLaptop={`url("/img/LaptopTutorial/2- tutorialPokemonHidden.png")`}
+          />
+          <Subtitle fontSize="1.4rem">
+            Pense em qual acha que é o pokémon
+          </Subtitle>
+        </TabPanelContent>
       </TabPanel>
-      <TabPanel value={value} index={2}>
-        <Title fontSize="1.4rem" letterSpacing="2px">
-          Como Jogar?
-        </Title>
-        <TutorialImage bgImage={`url("/img/tutorialRevealButton.png")`} />
-        <Subtitle>Clique no Botão "Fechar" para fechar esse pokémon</Subtitle>
+      <TabPanel sx={tabPanel} value={value} index={2}>
+        <TabPanelContent>
+          <Title fontSize="1.4rem" letterSpacing="2px">
+            Como Jogar?
+          </Title>
+          <TutorialImage
+            height="463px"
+            bgImage={`url("/img/MobileTutorial/3- tutorialRevealButtonHighlight.png")`}
+            bgImageLaptop={`url("/img/LaptopTutorial/3- tutorialRevealButtonHighlight.png")`}
+          />
+          <Subtitle fontSize="1.4rem">
+            Clique no Botão "Revelar", apos pensar sobre qual é o pokemon
+          </Subtitle>
+        </TabPanelContent>
       </TabPanel>
-      <TabPanel value={value} index={3}>
-        <Title fontSize="1.4rem" letterSpacing="2px">
-          Como Jogar?
-        </Title>
-        <TutorialImage bgImage={`url("/img/tutorialClickPokeball.png")`} />
-        <Subtitle>Então Repita os passos e aproveite o jogo</Subtitle>
+      <TabPanel sx={tabPanel} value={value} index={3}>
+        <TabPanelContent>
+          <Title fontSize="1.4rem" letterSpacing="2px">
+            Como Jogar?
+          </Title>
+          <TutorialImage
+            height="463px"
+            bgImage={`url("/img/MobileTutorial/4- tutorialCloseButtonHighlight.png")`}
+            bgImageLaptop={`url("/img/LaptopTutorial/4- tutorialCloseButtonHighlight.png")`}
+          />
+          <Subtitle fontSize="1.4rem">
+            Apos descobrir se acertou ou não, Clique no Botão "Fechar" para
+            fechar esse pokémon e assim podendo repetir o processo quantas vezes
+            quiser.
+          </Subtitle>
+        </TabPanelContent>
+      </TabPanel>
+      <TabPanel sx={tabPanel} value={value} index={4}>
+        <TabPanelContent>
+          <Title fontSize="1.4rem" letterSpacing="2px">
+            Como Jogar?
+          </Title>
+          <TutorialImage
+            height="463px"
+            bgImage={`url("/img/MobileTutorial/5- tutorialRandomButtonHighlight.png")`}
+            bgImageLaptop={`url("/img/LaptopTutorial/5- tutorialRandomButtonHighlight.png")`}
+          />
+          <Subtitle fontSize="1.4rem">
+            Quando Advinhar todos os pokémon, clique em "Aleatorizar", para
+            mudar os pokemons que tentar advinhar de novo. Agora que Você sabe
+            jogar, aproveite e divirta-se.
+          </Subtitle>
+        </TabPanelContent>
       </TabPanel>
     </Box>
   );

@@ -33,7 +33,7 @@ export default function Quiz() {
   const getPokemons = () => {
     setLoading(true);
     var endpoints = [];
-    for (var i = 1; i < 9; i++) {
+    for (var i = 1; i < 1008; i++) {
       endpoints.push(`https://pokeapi.co/api/v2/pokemon/${i}/`);
     }
     console.log(endpoints, "ENDPOINTS AQQQQQ");

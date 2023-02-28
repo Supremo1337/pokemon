@@ -5,6 +5,13 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { Subtitle, Title } from "../Quiz/styles";
 import { TabPanelContent, TutorialImage } from "../TutorialModal/styles";
+import {
+  styledBox,
+  styledBox1,
+  styledTab,
+  styledTabs,
+  tabPanel,
+} from "./styles";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -37,59 +44,6 @@ function a11yProps(index: number) {
   return {
     id: `simple-tab-${index}`,
     "aria-controls": `simple-tabpanel-${index}`,
-  };
-}
-
-function styledBox1() {
-  return {
-    width: "100%",
-    height: "100%",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    flexDirection: "column",
-  };
-}
-
-function styledBox() {
-  return {
-    width: "150px",
-    height: "20px",
-    // background: "red",
-    borderBottom: 1,
-    borderColor: "divider",
-    // position: "relative",
-    // top: "200px",
-    order: 1,
-  };
-}
-
-function styledTabs() {
-  return {
-    minHeight: "unset",
-    height: "20px",
-  };
-}
-
-function styledTab() {
-  return {
-    background: "#676E78",
-    fontSize: "20px",
-    minWidth: "unset",
-    maxWidth: "unset",
-    minHeight: "unset",
-    width: "15px",
-    height: "15px",
-    borderRadius: "50%",
-    p: "0",
-  };
-}
-
-function tabPanel() {
-  return {
-    display: "flex",
-    gap: "31px",
-    flexDirection: "column",
   };
 }
 
@@ -163,9 +117,7 @@ export default function BasicTabs() {
       </Box>
       <TabPanel sx={tabPanel} value={value} index={0}>
         <TabPanelContent>
-          <Title fontSize="1.4rem" letterSpacing="2px">
-            Como Jogar?
-          </Title>
+          <Title fontSize="1.4rem">Como Jogar?</Title>
           <TutorialImage
             height="463px"
             bgImage={`url("/img/MobileTutorial/1- tutorialPokeballHightlight.png")`}
@@ -178,9 +130,7 @@ export default function BasicTabs() {
       </TabPanel>
       <TabPanel sx={tabPanel} value={value} index={1}>
         <TabPanelContent>
-          <Title fontSize="1.4rem" letterSpacing="2px">
-            Como Jogar?
-          </Title>
+          <Title fontSize="1.4rem">Como Jogar?</Title>
           <TutorialImage
             height="463px"
             bgImage={`url("/img/MobileTutorial/2- tutorialPokemonHidden.png")`}
@@ -193,9 +143,7 @@ export default function BasicTabs() {
       </TabPanel>
       <TabPanel sx={tabPanel} value={value} index={2}>
         <TabPanelContent>
-          <Title fontSize="1.4rem" letterSpacing="2px">
-            Como Jogar?
-          </Title>
+          <Title fontSize="1.4rem">Como Jogar?</Title>
           <TutorialImage
             height="463px"
             bgImage={`url("/img/MobileTutorial/3- tutorialRevealButtonHighlight.png")`}
@@ -208,9 +156,7 @@ export default function BasicTabs() {
       </TabPanel>
       <TabPanel sx={tabPanel} value={value} index={3}>
         <TabPanelContent>
-          <Title fontSize="1.4rem" letterSpacing="2px">
-            Como Jogar?
-          </Title>
+          <Title fontSize="1.4rem">Como Jogar?</Title>
           <TutorialImage
             height="463px"
             bgImage={`url("/img/MobileTutorial/4- tutorialCloseButtonHighlight.png")`}
@@ -225,9 +171,7 @@ export default function BasicTabs() {
       </TabPanel>
       <TabPanel sx={tabPanel} value={value} index={4}>
         <TabPanelContent>
-          <Title fontSize="1.4rem" letterSpacing="2px">
-            Como Jogar?
-          </Title>
+          <Title fontSize="1.4rem">Como Jogar?</Title>
           <TutorialImage
             height="463px"
             bgImage={`url("/img/MobileTutorial/5- tutorialRandomButtonHighlight.png")`}

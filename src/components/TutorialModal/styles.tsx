@@ -14,6 +14,8 @@ export const TutorialImage = styled.div<TutorialImageProps>`
   background-size: contain;
   background-repeat: no-repeat;
   @media (min-width: 1024px) {
+    width: 286px;
+    height: 212px;
     background-image: ${(props) => props.bgImageLaptop};
   }
 `;
@@ -26,6 +28,7 @@ export const TabPanelContent = styled.div`
   flex-direction: column;
   /* background: pink; */
   @media (min-width: 1024px) {
-    width: 880px;
+    align-items: center;
+    width: 100%;
   }
 `;

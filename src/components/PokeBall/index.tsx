@@ -55,7 +55,7 @@ export const PokeBall: React.FC<{
   const [active, setActive] = useState(false);
   const [open, setOpen] = useState(false);
   const [visible, setVisible] = useState(true);
-  const matches = useMediaQuery("(min-width: 1180px)");
+  const matches = useMediaQuery("(min-width: 1024px)");
 
   const handleClick = () => {
     setActive(!active);

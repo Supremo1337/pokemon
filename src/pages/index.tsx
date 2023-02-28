@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 const Content = styled.div`
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   background-color: #181821;
   /* background-size: cover; */
   background-repeat: no-repeat;
@@ -16,8 +16,8 @@ const Content = styled.div`
   align-items: center;
   flex-direction: column;
   /* padding: 10px; */
+  overflow-y: scroll;
   justify-content: space-between;
-  overflow-y: hidden;
   @media (min-width: 1024px) {
     justify-content: center;
   }
@@ -38,7 +38,6 @@ const UnownQuestion2 = styled.div`
     position: relative;
     display: flex;
     width: 50%;
-    height: 100vh;
   }
 `;
 

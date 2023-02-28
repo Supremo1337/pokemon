@@ -6,8 +6,11 @@ interface TitleProps {
   margin?: string;
   cursor?: string;
   color?: string;
-  display?: string;
-  displayDesktop?: string;
+}
+interface SubtitleProps {
+  fontSize?: string;
+  margin?: string;
+  color?: string;
 }
 
 interface GifProps {
@@ -59,20 +62,19 @@ export const Title = styled.h1<TitleProps>`
   }
 `;
 
-export const Subtitle = styled.label<TitleProps>`
+export const Subtitle = styled.label<SubtitleProps>`
   font-size: ${(props) => props.fontSize};
   margin: ${(props) => props.margin};
   color: ${(props) => props.color};
   font-family: "Poppins";
   text-align: center;
-  /* display: ${(props) => props.display}; */
   span {
     font-weight: 500;
     font-size: 1.8rem;
   }
-  /* @media (min-width: 1024px) {
-    display: ${(props) => props.displayDesktop};
-  } */
+  @media (min-width: 1024px) {
+    font-size: 2.2rem;
+  }
 `;
 
 export const Divider = styled.label`

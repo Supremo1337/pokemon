@@ -29,14 +29,14 @@ export const Content = styled.div`
   gap: 15px;
   z-index: 1;
   /* background-color: purple; */
+  justify-content: center;
   @media (min-width: 1024px) {
     width: 732px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    justify-content: space-around;
     align-items: center;
-    position: absolute;
     gap: 29px;
+  }
+  @media (min-height: 696px) {
+    height: 100vh;
   }
 `;
 
@@ -49,7 +49,8 @@ export const GroupTextsDiv = styled.div`
   align-items: center;
   justify-content: space-between;
   @media (min-width: 1024px) {
-    height: 90px;
+    height: auto;
+    gap: 20px;
   }
 `;
 

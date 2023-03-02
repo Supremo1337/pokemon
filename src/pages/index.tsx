@@ -7,20 +7,17 @@ const inter = Inter({ subsets: ["latin"] });
 
 const Content = styled.div`
   width: 100vw;
-  height: 100%;
+  height: 100vh;
   background-color: #181821;
-  /* background-size: cover; */
-  background-repeat: no-repeat;
-  /* background-position: center; */
   display: flex;
   align-items: center;
   flex-direction: column;
   /* padding: 10px; */
   overflow-y: scroll;
   justify-content: space-between;
-  @media (min-width: 1024px) {
+  /* @media (min-width: 1024px) {
     justify-content: center;
-  }
+  } */
 `;
 
 const UnownQuestion2 = styled.div`
@@ -35,7 +32,7 @@ const UnownQuestion2 = styled.div`
   z-index: 0;
   align-self: flex-end;
   @media (min-width: 1024px) {
-    position: relative;
+    /* position: relative; */
     display: flex;
     width: 50%;
   }

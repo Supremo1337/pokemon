@@ -72,8 +72,8 @@ export default function Quiz() {
               <Subtitle fontSize="2.2rem">
                 Selecione uma Pokébola para começar
               </Subtitle>
+              <Divider />
             </GroupTextsDiv>
-            <Divider />
             <NumbersBox>
               <RowOfTheNumbers>
                 {randomPokemons?.slice(0, 8).map((res, index) => {

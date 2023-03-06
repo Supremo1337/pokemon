@@ -13,7 +13,7 @@ const Content = styled.div`
   align-items: center;
   flex-direction: column;
   /* padding: 10px; */
-  overflow-y: scroll;
+  overflow-y: auto;
   justify-content: space-between;
   /* @media (min-width: 1024px) {
     justify-content: center;
@@ -40,12 +40,10 @@ const UnownQuestion2 = styled.div`
 
 export default function Home() {
   return (
-    <>
-      <Content>
-        <UnownQuestion2 />
-        <BasicModal />
-        <Quiz />
-      </Content>
-    </>
+    <Content>
+      <UnownQuestion2 />
+      <BasicModal />
+      <Quiz />
+    </Content>
   );
 }

@@ -12,8 +12,6 @@ export const CheckboxContainer = styled.div<CheckboxProps>`
   align-items: center;
   width: 16%;
   user-select: none;
-  @media (min-width: 1024px) {
-  }
 `;
 
 export const HiddenCheckbox = styled.input.attrs({

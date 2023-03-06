@@ -36,8 +36,8 @@ function style(mediaQuery: boolean) {
     left: "50%",
     transform: "translate(-50%, -50%)",
     width: "100%",
-    height: "100%",
-    background: "#181821",
+    height: "100vh",
+    background: "green",
     border: "2px solid #000",
     boxShadow: 24,
     display: "flex",
@@ -109,7 +109,6 @@ export const PokeBall: React.FC<{
                             `url(${pokemon.data.sprites.other["official-artwork"].front_default})` ||
                             ""
                           }
-                          // bgImage={`url(/img/snorlaxColorido.png)` || ""}
                         />
                       </>
                     )}
@@ -127,23 +126,17 @@ export const PokeBall: React.FC<{
                     <ActionsButton onClick={handleClose}>Fechar</ActionsButton>
                   </ButtonsAndLogoDesktop>
                 </DivToGroupButtonsAndImagesOnlyInDesktop>
+                <RedDiv height="15%" heightDesktop="auto">
+                  <TESTE>
+                    <Subtitle fontSize="2rem">O Pokémon secreto é...</Subtitle>
+                    {visible && "1" ? (
+                      ""
+                    ) : (
+                      <PokemonName>{pokemon?.data.name}</PokemonName>
+                    )}
+                  </TESTE>
+                </RedDiv>
               </Content>
-              <RedDiv height="15%" heightDesktop="20%">
-                <TESTE>
-                  <Subtitle
-                    // display="flex"
-                    // displayDesktop="none"
-                    fontSize="2rem"
-                  >
-                    O Pokémon secreto é...
-                  </Subtitle>
-                  {visible && "1" ? (
-                    ""
-                  ) : (
-                    <PokemonName>{pokemon?.data.name}</PokemonName>
-                  )}
-                </TESTE>
-              </RedDiv>
             </Box>
           </Modal>
         </>

@@ -28,7 +28,7 @@ export const Content = styled.div`
   padding: 10px;
   gap: 15px;
   z-index: 1;
-  /* background-color: purple; */
+  background-color: purple;
   justify-content: center;
   @media (min-width: 1024px) {
     width: 732px;

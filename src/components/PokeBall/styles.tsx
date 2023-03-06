@@ -58,13 +58,14 @@ export const Content = styled.div`
   width: 100%;
   height: 85%;
   display: flex;
-  /* background: blue; */
+  background: blue;
   padding: 36px 10px;
   flex-direction: column;
   align-items: center;
   @media (min-width: 1024px) {
-    height: 80%;
+    height: 100vh;
     padding: 56px;
+    overflow-y: auto;
   }
 `;
 
@@ -84,9 +85,9 @@ export const DivToGroupButtonsAndImagesOnlyInDesktop = styled.div`
   flex-direction: column;
   @media (min-width: 1024px) {
     width: 100%;
-    height: 100%;
+    height: auto;
     display: flex;
-    /* background: pink; */
+    background: pink;
     flex-direction: row;
     justify-content: space-between;
   }
@@ -99,9 +100,9 @@ export const ButtonsAndLogoDesktop = styled.div`
   flex-direction: column;
   @media (min-width: 1024px) {
     width: 44%;
-    height: 100%;
+    height: auto;
     display: flex;
-    /* background: yellow; */
+    background: yellow;
     padding: 0 20px;
   }
 
@@ -153,12 +154,11 @@ export const WhosThatPokemonImageBox = styled.div`
   @media (min-width: 1024px) {
     width: 450px;
     height: 413.71px;
-    order: -1;
+    /* order: -1; */
   }
   @media (min-width: 1366px) {
-    width: 650px;
-    height: 610px;
-    top: 92px;
+    width: 646px;
+    height: 606px;
     position: relative;
     top: 92px;
   }
@@ -244,7 +244,7 @@ export const TESTE = styled.div`
   @media (min-width: 1024px) {
     /* gap: 0; */
     /* background: green; */
-    height: 100%;
+    height: 170px;
     width: 44%;
   }
   @media (min-width: 1366px) {

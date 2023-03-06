@@ -9,6 +9,7 @@ import {
   Divider,
   Credits,
   Gif,
+  Wrapper,
 } from "./styles";
 import React, { useEffect, useState } from "react";
 import axios, { AxiosResponse } from "axios";
@@ -64,46 +65,48 @@ export default function Quiz() {
 
   return (
     <>
-      <Content>
-        {!loading ? (
-          <>
-            <GroupTextsDiv>
-              <Title>Pokémon Quiz</Title>
-              <Subtitle fontSize="2.2rem">
-                Selecione uma Pokébola para começar
-              </Subtitle>
-              <Divider />
-            </GroupTextsDiv>
-            <NumbersBox>
-              <RowOfTheNumbers>
-                {randomPokemons?.slice(0, 8).map((res, index) => {
-                  return (
-                    <PokeBall key={index} number={index + 1} pokemon={res} />
-                  );
-                })}
-              </RowOfTheNumbers>
-            </NumbersBox>
-            <ShuffleButton onClick={() => getPokemons()}>
-              <Shuffle size={24} color="#fff" />
-              Aleatorizar
-            </ShuffleButton>
-            <Credits>
-              <Gif
-                width="39px"
-                height="31px"
-                bgImage={`url("/img/lucario.gif")`}
-              />
-              <Subtitle fontSize="1.8rem">
-                Criado por <span>Lucas Wyllame</span>
-              </Subtitle>
-            </Credits>
-          </>
-        ) : (
-          <Loading />
-        )}
-      </Content>
-      <RedDiv height="1%" heightDesktop="13px" />
-      {/* <PersistentDrawerLeft /> */}
+      <Wrapper>
+        <Content>
+          {!loading ? (
+            <>
+              <GroupTextsDiv>
+                <Title>Pokémon Quiz</Title>
+                <Subtitle fontSize="2.2rem">
+                  Selecione uma Pokébola para começar
+                </Subtitle>
+                <Divider />
+              </GroupTextsDiv>
+              <NumbersBox>
+                <RowOfTheNumbers>
+                  {randomPokemons?.slice(0, 8).map((res, index) => {
+                    return (
+                      <PokeBall key={index} number={index + 1} pokemon={res} />
+                    );
+                  })}
+                </RowOfTheNumbers>
+              </NumbersBox>
+              <ShuffleButton onClick={() => getPokemons()}>
+                <Shuffle size={24} color="#fff" />
+                Aleatorizar
+              </ShuffleButton>
+              <Credits>
+                <Gif
+                  width="39px"
+                  height="31px"
+                  bgImage={`url("/img/lucario.gif")`}
+                />
+                <Subtitle fontSize="1.8rem">
+                  Criado por <span>Lucas Wyllame</span>
+                </Subtitle>
+              </Credits>
+            </>
+          ) : (
+            <Loading />
+          )}
+        </Content>
+        {/* <PersistentDrawerLeft /> */}
+        <RedDiv height="1%" heightDesktop="13px" />
+      </Wrapper>
     </>
   );
 }

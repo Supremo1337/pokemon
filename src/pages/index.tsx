@@ -14,7 +14,7 @@ const Content = styled.div`
   flex-direction: column;
   /* padding: 10px; */
   overflow-y: auto;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   /* @media (min-width: 1024px) {
     justify-content: center;
   } */

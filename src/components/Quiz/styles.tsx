@@ -19,6 +19,15 @@ interface GifProps {
   bgImage?: string;
 }
 
+export const Wrapper = styled.div`
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: pink;
+`;
+
 export const Content = styled.div`
   width: 355px;
   height: auto;
@@ -32,7 +41,7 @@ export const Content = styled.div`
   justify-content: center;
   @media (min-width: 1024px) {
     width: 732px;
-    align-items: center;
+    /* align-items: center; */
     gap: 29px;
   }
   @media (min-height: 696px) {

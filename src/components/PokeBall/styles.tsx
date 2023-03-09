@@ -56,13 +56,16 @@ export const CirclesNumbers = styled.div`
 
 export const Content = styled.div`
   width: 100%;
-  height: 85%;
+  height: 100%;
   display: flex;
-  background: blue;
+  /* background: blue; */
   padding: 36px 10px;
   flex-direction: column;
   align-items: center;
+  overflow-y: auto;
+  gap: 10px;
   @media (min-width: 1024px) {
+    gap: 0;
     height: 100vh;
     padding: 56px;
     overflow-y: auto;
@@ -78,7 +81,7 @@ export const TitleDiv = styled.div`
   gap: 10px;
 `;
 
-export const DivToGroupButtonsAndImagesOnlyInDesktop = styled.div`
+export const DivToGroupButtonsAndImages = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -87,7 +90,7 @@ export const DivToGroupButtonsAndImagesOnlyInDesktop = styled.div`
     width: 100%;
     height: auto;
     display: flex;
-    background: pink;
+    /* background: pink; */
     flex-direction: row;
     justify-content: space-between;
   }
@@ -102,7 +105,7 @@ export const ButtonsAndLogoDesktop = styled.div`
     width: 44%;
     height: auto;
     display: flex;
-    background: yellow;
+    /* background: yellow; */
     padding: 0 20px;
   }
 

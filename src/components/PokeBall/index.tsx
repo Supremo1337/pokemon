@@ -10,7 +10,7 @@ import {
   BorderRedTitle,
   PokemonLogo,
   WhosThatPokemonImageBox,
-  DivToGroupButtonsAndImagesOnlyInDesktop,
+  DivToGroupButtonsAndImages,
   ButtonsAndLogoDesktop,
   TESTE,
 } from "./styles";
@@ -37,7 +37,7 @@ function style(mediaQuery: boolean) {
     transform: "translate(-50%, -50%)",
     width: "100%",
     height: "100vh",
-    background: "green",
+    background: "#181821",
     border: "2px solid #000",
     boxShadow: 24,
     display: "flex",
@@ -91,7 +91,7 @@ export const PokeBall: React.FC<{
                   <BorderRedTitle />
                   <Title>Quem é esse Pokémon?</Title>
                 </TitleDiv>
-                <DivToGroupButtonsAndImagesOnlyInDesktop>
+                <DivToGroupButtonsAndImages>
                   <PokemonLogo display="block" displayDesktop="none" />
                   <WhosThatPokemonImageBox>
                     {visible && "1" ? (
@@ -125,8 +125,8 @@ export const PokeBall: React.FC<{
                     </ActionsButton>
                     <ActionsButton onClick={handleClose}>Fechar</ActionsButton>
                   </ButtonsAndLogoDesktop>
-                </DivToGroupButtonsAndImagesOnlyInDesktop>
-                <RedDiv height="15%" heightDesktop="auto">
+                </DivToGroupButtonsAndImages>
+                <RedDiv height="auto" heightDesktop="auto">
                   <TESTE>
                     <Subtitle fontSize="2rem">O Pokémon secreto é...</Subtitle>
                     {visible && "1" ? (

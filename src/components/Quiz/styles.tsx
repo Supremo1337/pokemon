@@ -36,3 +36,24 @@ export const Subtitle = styled.label<SubtitleProps>`
     font-size: 2.2rem;
   }
 `;
+
+export const Content = styled.div`
+  width: 50%;
+  height: calc(100vh - 15px);
+  background: blue;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+`;
+
+export const RedDiv = styled.div`
+  width: 100%;
+  height: 15px;
+  background: red;
+`;
+
+export const Divider = styled.div`
+  width: 20px;
+  height: 1px;
+  background: red;
+`;

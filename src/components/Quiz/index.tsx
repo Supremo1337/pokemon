@@ -1,11 +1,10 @@
-import {} from "./styles";
+import { Content, Divider, RedDiv, Subtitle, Title } from "./styles";
 import React, { useEffect, useState } from "react";
 import axios, { AxiosResponse } from "axios";
 import Loading from "../Loading";
 import { Shuffle } from "phosphor-react";
 import { PokeBall } from "../PokeBall";
 import PersistentDrawerLeft from "../PersistentDrawerLeft";
-import { RedDiv } from "../PokeBall/styles";
 
 export default function Quiz() {
   // const [allPokemons, setAllPokemons] = useState<AxiosResponse<any, any>[]>();
@@ -51,5 +50,45 @@ export default function Quiz() {
     return pokemons;
   }
 
-  return <></>;
+  return (
+    <>
+      <Content>
+        <Title>PokeGuess</Title>
+        <Subtitle>Selecione uma Pokébola para começar</Subtitle>
+        <Divider />
+        <Title>PokeGuess</Title>
+        <Subtitle>Selecione uma Pokébola para começar</Subtitle>
+        <Divider />
+        <Title>PokeGuess</Title>
+        <Subtitle>Selecione uma Pokébola para começar</Subtitle>
+        <Divider />
+        <Title>PokeGuess</Title>
+        <Subtitle>Selecione uma Pokébola para começar</Subtitle>
+        <Divider />
+        <Title>PokeGuess</Title>
+        <Subtitle>Selecione uma Pokébola para começar</Subtitle>
+        <Divider />
+        <Title>PokeGuess</Title>
+        <Subtitle>Selecione uma Pokébola para começar</Subtitle>
+        <Divider />
+        <Title>PokeGuess</Title>
+        <Subtitle>Selecione uma Pokébola para começar</Subtitle>
+        <Divider />
+        <Title>PokeGuess</Title>
+        <Subtitle>Selecione uma Pokébola para começar</Subtitle>
+        <Divider /><Title>PokeGuess</Title>
+        <Subtitle>Selecione uma Pokébola para começar</Subtitle>
+        <Divider /><Title>PokeGuess</Title>
+        <Subtitle>Selecione uma Pokébola para começar</Subtitle>
+        <Divider /><Title>PokeGuess</Title>
+        <Subtitle>Selecione uma Pokébola para começar</Subtitle>
+        <Divider /><Title>PokeGuess</Title>
+        <Subtitle>Selecione uma Pokébola para começar</Subtitle>
+        <Divider /><Title>PokeGuess</Title>
+        <Subtitle>Selecione uma Pokébola para começar</Subtitle>
+        <Divider />
+      </Content>
+      <RedDiv />
+    </>
+  );
 }

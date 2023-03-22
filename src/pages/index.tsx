@@ -7,7 +7,6 @@ const inter = Inter({ subsets: ["latin"] });
 
 const Content = styled.div`
   width: 100vw;
-  height: 100vh;
   background: pink;
   display: flex;
   justify-content: space-between;

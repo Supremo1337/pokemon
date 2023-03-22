@@ -39,7 +39,7 @@ export const Subtitle = styled.label<SubtitleProps>`
 
 export const Content = styled.div`
   width: 50%;
-  height: calc(100vh - 15px);
+  /* height: calc(100vh - 15px); */
   background: blue;
   display: flex;
   align-items: center;

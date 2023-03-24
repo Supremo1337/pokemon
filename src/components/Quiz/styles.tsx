@@ -28,25 +28,35 @@ export const Wrapper = styled.div`
   /* background-color: pink; */
 `;
 
+// export const Content = styled.div`
+//   width: 355px;
+//   height: auto;
+//   display: flex;
+//   align-items: center;
+//   flex-direction: column;
+//   padding: 10px;
+//   gap: 15px;
+//   z-index: 1;
+//   /* background-color: purple; */
+//   justify-content: center;
+//   @media (min-width: 1024px) {
+//     width: 732px;
+//     /* align-items: center; */
+//     gap: 29px;
+//   }
+//   @media (min-height: 696px) {
+//     height: 100vh;
+//   }
+// `;
+
 export const Content = styled.div`
-  width: 355px;
-  height: auto;
+  width: 50%;
+  /* height: calc(100vh - 15px); */
+  background: blue;
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding: 10px;
-  gap: 15px;
-  z-index: 1;
-  /* background-color: purple; */
-  justify-content: center;
-  @media (min-width: 1024px) {
-    width: 732px;
-    /* align-items: center; */
-    gap: 29px;
-  }
-  @media (min-height: 696px) {
-    height: 100vh;
-  }
+  padding: 179px;
 `;
 
 export const GroupTextsDiv = styled.div`

@@ -65,7 +65,7 @@ export default function Quiz() {
 
   return (
     <>
-      <Wrapper>
+      {/* <Wrapper> */}
         <Content>
           {!loading ? (
             <>
@@ -106,7 +106,7 @@ export default function Quiz() {
         </Content>
         {/* <PersistentDrawerLeft /> */}
         <RedDiv height="1%" heightDesktop="13px" />
-      </Wrapper>
+      {/* </Wrapper> */}
     </>
   );
 }

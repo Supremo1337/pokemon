@@ -7,17 +7,11 @@ const inter = Inter({ subsets: ["latin"] });
 
 const Content = styled.div`
   width: 100vw;
-  height: 100vh;
-  background-color: #181821;
+  background: pink;
   display: flex;
-  align-items: center;
+  justify-content: space-between;
   flex-direction: column;
-  /* padding: 10px; */
-  overflow-y: auto;
-  /* justify-content: space-between; */
-  /* @media (min-width: 1024px) {
-    justify-content: center;
-  } */
+  align-items: center;
 `;
 
 const UnownQuestion2 = styled.div`
@@ -41,8 +35,6 @@ const UnownQuestion2 = styled.div`
 export default function Home() {
   return (
     <Content>
-      <UnownQuestion2 />
-      <BasicModal />
       <Quiz />
     </Content>
   );

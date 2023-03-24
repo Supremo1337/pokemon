@@ -52,7 +52,7 @@ export const Wrapper = styled.div`
 export const Content = styled.div`
   width: 50%;
   /* height: calc(100vh - 15px); */
-  background: blue;
+  /* background: blue; */
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -114,6 +114,7 @@ export const NumbersBox = styled.div`
   box-shadow: 16px 12px 25px #00000069;
   border-radius: 21px;
   padding: 40px 0;
+  z-index: 1;
   @media (min-width: 1024px) {
     width: 632px;
     height: 324px;

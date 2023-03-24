@@ -87,11 +87,11 @@ export const PokeBall: React.FC<{
           <Modal open={open}>
             <Box sx={{ ...style(matches) }}>
               <Content>
-                <TitleDiv>
-                  <BorderRedTitle />
-                  <Title>Quem é esse Pokémon?</Title>
-                </TitleDiv>
                 <DivToGroupButtonsAndImages>
+                  <TitleDiv>
+                    <BorderRedTitle />
+                    <Title>Quem é esse Pokémon?</Title>
+                  </TitleDiv>
                   <PokemonLogo display="block" displayDesktop="none" />
                   <WhosThatPokemonImageBox>
                     {visible && "1" ? (
@@ -126,7 +126,7 @@ export const PokeBall: React.FC<{
                     <ActionsButton onClick={handleClose}>Fechar</ActionsButton>
                   </ButtonsAndLogoDesktop>
                 </DivToGroupButtonsAndImages>
-                <RedDiv height="auto" heightDesktop="auto">
+                <RedDiv height="200px" heightDesktop="auto">
                   <TESTE>
                     <Subtitle fontSize="2rem">O Pokémon secreto é...</Subtitle>
                     {visible && "1" ? (

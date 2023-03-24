@@ -58,8 +58,8 @@ export const Content = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  /* background: blue; */
-  padding: 36px 10px;
+  background: blue;
+  /* padding: 36px 10px; */
   flex-direction: column;
   align-items: center;
   overflow-y: auto;
@@ -67,7 +67,7 @@ export const Content = styled.div`
   @media (min-width: 1024px) {
     gap: 0;
     height: 100vh;
-    padding: 56px;
+    /* padding: 56px; */
     overflow-y: auto;
   }
 `;
@@ -86,11 +86,11 @@ export const DivToGroupButtonsAndImages = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  background: pink;
   @media (min-width: 1024px) {
     width: 100%;
     height: auto;
     display: flex;
-    /* background: pink; */
     flex-direction: row;
     justify-content: space-between;
   }

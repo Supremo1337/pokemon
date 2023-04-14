@@ -50,9 +50,9 @@ export const Wrapper = styled.div`
 // `;
 
 export const Content = styled.div`
-  width: 50%;
+  width: 1000px;
   /* height: calc(100vh - 15px); */
-  /* background: blue; */
+  background: blue;
   display: flex;
   align-items: center;
   flex-direction: column;

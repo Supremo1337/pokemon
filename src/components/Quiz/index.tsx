@@ -74,7 +74,7 @@ export default function Quiz() {
                 <Subtitle fontSize="2.2rem">
                   Selecione uma Pokébola para começar
                 </Subtitle>
-                <Divider />
+                {/* <Divider /> */}
               </GroupTextsDiv>
               <NumbersBox>
                 <RowOfTheNumbers>
@@ -105,7 +105,7 @@ export default function Quiz() {
           )}
         </Content>
         {/* <PersistentDrawerLeft /> */}
-        <RedDiv height="1%" heightDesktop="13px" />
+        <RedDiv height="5%" heightDesktop="13px" />
       {/* </Wrapper> */}
     </>
   );

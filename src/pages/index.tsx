@@ -7,6 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 const Content = styled.div`
   width: 100vw;
+  height: 100vh;
   background: #181821;
   display: flex;
   justify-content: space-between;
@@ -36,7 +37,7 @@ export default function Home() {
   return (
     <Content>
       <Quiz />
-      <UnownQuestion2 />
+      {/* <UnownQuestion2 /> */}
     </Content>
   );
 }

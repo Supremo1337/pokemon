@@ -50,18 +50,20 @@ export const Wrapper = styled.div`
 // `;
 
 export const Content = styled.div`
-  width: 1000px;
-  /* height: calc(100vh - 15px); */
+  width: 100%;
+  /* height: calc(100% - 15px); */
+  height: auto;
   background: blue;
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding: 179px;
+  padding: 30px 10px;
+  gap: 15px;
 `;
 
 export const GroupTextsDiv = styled.div`
   width: auto;
-  height: auto;
+  /* height: auto; */
   display: flex;
   /* background-color: blue; */
   flex-direction: column;
@@ -131,6 +133,7 @@ export const RowOfTheNumbers = styled.div`
   align-items: center;
   justify-items: center;
   row-gap: 25px;
+  /* background: red; */
   @media (min-width: 1024px) {
     width: 76%;
     grid-template-columns: 1fr 1fr 1fr 1fr;

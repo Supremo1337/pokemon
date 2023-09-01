@@ -1,4 +1,19 @@
-import { UniquePokeball, CirclesNumbers } from "./styles";
+import {
+  UniquePokeball,
+  CirclesNumbers,
+  WhosThatPokemon,
+  PokemonName,
+  ActionsButton,
+  RedDiv,
+  TitleDiv,
+  Content,
+  BorderRedTitle,
+  PokemonLogo,
+  WhosThatPokemonImageBox,
+  DivToGroupButtonsAndImages,
+  ButtonsAndLogoDesktop,
+  TESTE,
+} from "./styles";
 import { useMediaQuery } from "@mui/material";
 import { useState } from "react";
 import Box from "@mui/material/Box";
@@ -71,7 +86,57 @@ export const PokeBall: React.FC<{
           </UniquePokeball>
           <Modal open={open}>
             <Box sx={{ ...style(matches) }}>
-              <></>
+              <Content>
+                <TitleDiv>
+                  <BorderRedTitle />
+                  <Title>Quem é esse Pokémon?</Title>
+                </TitleDiv>
+                <DivToGroupButtonsAndImages>
+                  <PokemonLogo display="block" displayDesktop="none" />
+                  <WhosThatPokemonImageBox>
+                    {visible && "1" ? (
+                      <WhosThatPokemon
+                        bgImage={
+                          `url(${pokemon.data.sprites.other["official-artwork"].front_default})` ||
+                          ""
+                        }
+                        filter={"brightness(0%)"}
+                      />
+                    ) : (
+                      <>
+                        <WhosThatPokemon
+                          bgImage={
+                            `url(${pokemon.data.sprites.other["official-artwork"].front_default})` ||
+                            ""
+                          }
+                        />
+                      </>
+                    )}
+                  </WhosThatPokemonImageBox>
+                  <ButtonsAndLogoDesktop>
+                    <PokemonLogo display="none" displayDesktop="block" />
+                    <ActionsButton
+                      margin="28px 0 22px 0"
+                      onClick={() => {
+                        setVisible(false);
+                      }}
+                    >
+                      Revelar
+                    </ActionsButton>
+                    <ActionsButton onClick={handleClose}>Fechar</ActionsButton>
+                  </ButtonsAndLogoDesktop>
+                </DivToGroupButtonsAndImages>
+                <RedDiv height="auto" heightDesktop="auto">
+                  <TESTE>
+                    <Subtitle fontSize="2rem">O Pokémon secreto é...</Subtitle>
+                    {visible && "1" ? (
+                      ""
+                    ) : (
+                      <PokemonName>{pokemon?.data.name}</PokemonName>
+                    )}
+                  </TESTE>
+                </RedDiv>
+              </Content>
             </Box>
           </Modal>
         </>

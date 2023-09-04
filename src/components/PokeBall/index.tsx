@@ -1,9 +1,9 @@
-import { CirclesNumbers, Content, RedDiv, TitleMarkup, UniquePokeball } from "./styles";
+import * as S from "./styles";
 import { useMediaQuery } from "@mui/material";
 import { useState } from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
-import { Subtitle, Title } from "../Quiz/styles";
+import { RedBar, Subtitle, Title } from "../Quiz/styles";
 
 export interface IPokemonInfoProps {
   gridColumn: string;
@@ -23,12 +23,11 @@ function style(mediaQuery: boolean) {
     width: "100%",
     height: "100vh",
     background: "#181821",
-    border: "2px solid #000",
     boxShadow: 24,
-    // display: "flex",
-    // alignItems: "flex-end",
-    // justifyItems: "flex-end",
-    // flexDirection: "column",
+    display: "flex",
+    alignItems: "center",
+    justifyItems: "center",
+    flexDirection: "column",
     outline: "none",
   };
 }
@@ -58,7 +57,7 @@ export const PokeBall: React.FC<{
     <>
       {pokemon && (
         <>
-          <UniquePokeball
+          <S.UniquePokeball
             gridColumn={pokemon.gridColumn}
             gridRow={pokemon.gridRow}
             gridColumnDesktop={pokemon.gridColumnDesktop}
@@ -67,14 +66,65 @@ export const PokeBall: React.FC<{
             key={pokemon.name}
             style={{ opacity: active ? "0.1" : "1" }}
           >
-            <CirclesNumbers>{`${number}`}</CirclesNumbers>
-          </UniquePokeball>
+            <S.CirclesNumbers>{`${number}`}</S.CirclesNumbers>
+          </S.UniquePokeball>
           <Modal open={open}>
             <Box sx={{ ...style(matches) }}>
-              <Content>
-                <TitleMarkup></TitleMarkup>
-              </Content>
-              <RedDiv height="20%" heightDesktop=""/>
+              <S.Content>
+                <S.TitleDiv>
+                  <S.BorderRedTitle />
+                  <Title>Quem é esse Pokémon?</Title>
+                </S.TitleDiv>
+                <S.DivToGroupButtonsAndImages>
+                  <S.PokemonLogo display="block" displayDesktop="none" />
+                  <S.WhosThatPokemonImageBox>
+                    {visible && "1" ? (
+                      <S.WhosThatPokemon
+                        bgImage={
+                          `url(${pokemon.data.sprites.other["official-artwork"].front_default})` ||
+                          ""
+                        }
+                        filter={"brightness(0%)"}
+                      />
+                    ) : (
+                      <>
+                        <S.WhosThatPokemon
+                          bgImage={
+                            `url(${pokemon.data.sprites.other["official-artwork"].front_default})` ||
+                            ""
+                          }
+                        />
+                      </>
+                    )}
+                  </S.WhosThatPokemonImageBox>
+                  <S.ButtonsAndLogoDesktop>
+                    <S.PokemonLogo display="none" displayDesktop="block" />
+                    <S.ActionsButton
+                      margin="28px 0 22px 0"
+                      onClick={() => {
+                        setVisible(false);
+                      }}
+                    >
+                      Revelar
+                    </S.ActionsButton>
+                    <S.ActionsButton onClick={handleClose}>
+                      Fechar
+                    </S.ActionsButton>
+                  </S.ButtonsAndLogoDesktop>
+                </S.DivToGroupButtonsAndImages>
+              </S.Content>
+              <RedBar height="160px" heightNotebook="181px">
+                <S.RedBarFlexBox>
+                  <Subtitle fontSize="2rem">O Pokémon secreto é...</Subtitle>
+                  {visible && "1" ? (
+                    <S.PokemonNameNotVisible>
+                      {pokemon?.data.name}
+                    </S.PokemonNameNotVisible>
+                  ) : (
+                    <S.PokemonName>{pokemon?.data.name}</S.PokemonName>
+                  )}
+                </S.RedBarFlexBox>
+              </RedBar>
             </Box>
           </Modal>
         </>

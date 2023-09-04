@@ -18,61 +18,37 @@ interface GifProps {
   height?: string;
   bgImage?: string;
 }
+interface RedBarProps {
+  height?: string;
+  heightNotebook?: string;
+}
 
 export const Wrapper = styled.div`
-  width: 100%;
-  height: auto;
+  min-height: 100vh;
   display: flex;
-  align-items: center;
   flex-direction: column;
-  /* background-color: pink; */
+  align-items: center;
 `;
-
-// export const Content = styled.div`
-//   width: 355px;
-//   height: auto;
-//   display: flex;
-//   align-items: center;
-//   flex-direction: column;
-//   padding: 10px;
-//   gap: 15px;
-//   z-index: 1;
-//   /* background-color: purple; */
-//   justify-content: center;
-//   @media (min-width: 1024px) {
-//     width: 732px;
-//     /* align-items: center; */
-//     gap: 29px;
-//   }
-//   @media (min-height: 696px) {
-//     height: 100vh;
-//   }
-// `;
 
 export const Content = styled.div`
-  width: 100%;
-  /* height: calc(100% - 15px); */
-  height: auto;
-  background: blue;
+  flex-grow: 1;
   display: flex;
-  align-items: center;
-  flex-direction: column;
-  padding: 30px 10px;
-  gap: 15px;
 `;
 
-export const GroupTextsDiv = styled.div`
-  width: auto;
-  /* height: auto; */
+export const MainContent = styled.main`
   display: flex;
-  /* background-color: blue; */
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
-  @media (min-width: 1024px) {
-    height: auto;
-    gap: 20px;
-  }
+  flex-direction: column;
+  padding: 0 12px;
+`;
+
+export const Header = styled.header`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
 `;
 
 export const Title = styled.h1<TitleProps>`
@@ -99,45 +75,44 @@ export const Subtitle = styled.label<SubtitleProps>`
   }
 `;
 
-export const Divider = styled.label`
-  width: 50px;
-  height: 1.5px;
+export const RedDivider = styled.div`
+  width: 30px;
+  height: 1px;
   background: #ff3464;
-`;
-
-export const NumbersBox = styled.div`
-  width: 100%;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: transparent linear-gradient(243deg, #23242e 0%, #181821 100%) 0%
-    0% no-repeat padding-box;
-  box-shadow: 16px 12px 25px #00000069;
-  border-radius: 21px;
-  padding: 40px 0;
-  z-index: 1;
+  margin: 20px 0;
   @media (min-width: 1024px) {
-    width: 632px;
-    height: 324px;
+    margin: 30px 0;
   }
 `;
 
-export const RowOfTheNumbers = styled.div`
-  width: 78%;
-  height: 100%;
-  display: grid;
-  justify-content: space-between;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
+export const PokeBallsGroup = styled.div`
+  width: 324px;
+  display: flex;
+  background: transparent linear-gradient(243deg, #23242e 0%, #181821 100%);
+  box-shadow: 16px 12px 25px #00000069;
+  border-radius: 21px;
+  padding: 28px;
+
+  justify-content: center;
   align-items: center;
-  justify-items: center;
-  row-gap: 25px;
-  /* background: red; */
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 20px;
+
   @media (min-width: 1024px) {
-    width: 76%;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    width: 632px;
+  }
+`;
+
+export const RedBar = styled.div<RedBarProps>`
+  width: 100%;
+  height: ${(props) => props.height || "13px"};
+  background-color: #ff3464;
+  @media (min-width: 1024px) {
+    height: ${(props) => props.heightNotebook || "13px"};
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
   }
 `;
 
@@ -154,8 +129,9 @@ export const ShuffleButton = styled.div`
   cursor: pointer;
   font-size: 1.8rem;
   font-family: "Poppins";
+  margin: 30px 0 20px 0;
   @media (min-width: 1024px) {
-    margin: 30px 0 9px 0;
+    margin: 50px 0 40px 0;
   }
 `;
 

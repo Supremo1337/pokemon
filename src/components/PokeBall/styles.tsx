@@ -64,11 +64,15 @@ export const Content = styled.div`
   align-items: center;
   overflow-y: auto;
   gap: 10px;
+  flex-grow: 1;
   @media (min-width: 1024px) {
-    gap: 0;
+    gap: 30px;
     height: 100vh;
     padding: 56px;
-    overflow-y: auto;
+    justify-content: center;
+  }
+  @media (min-width: 1366px) {
+    max-width: 1366px;
   }
 `;
 
@@ -160,10 +164,8 @@ export const WhosThatPokemonImageBox = styled.div`
     /* order: -1; */
   }
   @media (min-width: 1366px) {
-    width: 646px;
-    height: 606px;
-    position: relative;
-    top: 92px;
+    width: 521px;
+    height: 481px;
   }
 `;
 
@@ -190,22 +192,6 @@ export const ActionsButton = styled.button<ActionsButtonProps>`
   border: 0;
   margin: ${(props) => props.margin};
   @media (min-width: 1024px) {
-  }
-`;
-
-export const RedDiv = styled.div<RedDivProps>`
-  width: 100%;
-  height: ${(props) => props.height};
-  background: #ff3464;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
-  padding: 12px 0;
-  @media (min-width: 1024px) {
-    height: ${(props) => props.heightDesktop};
-    align-items: flex-end;
-    padding: 0 56px;
   }
 `;
 
@@ -236,7 +222,12 @@ export const PokemonName = styled.div`
   }
 `;
 
-export const TESTE = styled.div`
+export const PokemonNameNotVisible = styled(PokemonName)`
+  background: #e93360;
+  color: transparent;
+`;
+
+export const RedBarFlexBox = styled.div`
   height: 100%;
   width: 100%;
   display: flex;

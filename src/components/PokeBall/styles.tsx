@@ -21,11 +21,6 @@ export interface PokemonLogoProps {
   displayDesktop: string;
 }
 
-export interface RedDivProps {
-  height: string;
-  heightDesktop: string;
-}
-
 export const UniquePokeball = styled.div<ContentProps>`
   width: 90px;
   height: 90px;

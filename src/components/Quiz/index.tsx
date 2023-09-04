@@ -5,6 +5,7 @@ import { Shuffle } from "phosphor-react";
 import * as S from "./styles";
 import { PokeBall } from "../PokeBall";
 import styled from "styled-components";
+import * as GS from "@/styles/globalStyles";
 
 export default function Quiz() {
   // const [allPokemons, setAllPokemons] = useState<AxiosResponse<any, any>[]>();
@@ -56,10 +57,10 @@ export default function Quiz() {
           <S.Content>
             <S.MainContent>
               <S.Header>
-                <S.Title>Pokémon Quiz</S.Title>
-                <S.Subtitle fontSize="2.2rem">
+                <GS.Title>Pokémon Quiz</GS.Title>
+                <GS.Subtitle fontSize="2.2rem" color="#D7D8DE">
                   Selecione uma Pokébola para começar
-                </S.Subtitle>
+                </GS.Subtitle>
               </S.Header>
               <S.RedDivider />
               <S.PokeBallsGroup>
@@ -79,13 +80,13 @@ export default function Quiz() {
                   height="31px"
                   bgImage={`url("/img/lucario.gif")`}
                 />
-                <S.Subtitle fontSize="1.8rem">
+                <GS.Subtitle color="#FFFFFF" fontSize="1.8rem">
                   Criado por <span>Lucas Wyllame</span>
-                </S.Subtitle>
+                </GS.Subtitle>
               </S.Credits>
             </S.MainContent>
           </S.Content>
-          <S.RedBar />
+          <GS.RedBar />
         </>
       ) : (
         <Loading />

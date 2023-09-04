@@ -1,26 +1,9 @@
 import styled from "styled-components";
 
-interface TitleProps {
-  fontSize?: string;
-  letterSpacing?: string;
-  margin?: string;
-  cursor?: string;
-  color?: string;
-}
-interface SubtitleProps {
-  fontSize?: string;
-  margin?: string;
-  color?: string;
-}
-
 interface GifProps {
   width?: string;
   height?: string;
   bgImage?: string;
-}
-interface RedBarProps {
-  height?: string;
-  heightNotebook?: string;
 }
 
 export const Wrapper = styled.div`
@@ -49,30 +32,6 @@ export const Header = styled.header`
   align-items: center;
   flex-direction: column;
   gap: 20px;
-`;
-
-export const Title = styled.h1<TitleProps>`
-  font-size: 2.5rem;
-  margin: 0;
-  color: #fff;
-  @media (min-width: 1024px) {
-    font-size: 3.8rem;
-  }
-`;
-
-export const Subtitle = styled.label<SubtitleProps>`
-  font-size: ${(props) => props.fontSize};
-  margin: ${(props) => props.margin};
-  color: ${(props) => props.color};
-  font-family: "Poppins";
-  text-align: center;
-  span {
-    font-weight: 500;
-    font-size: 1.8rem;
-  }
-  @media (min-width: 1024px) {
-    font-size: 2.2rem;
-  }
 `;
 
 export const RedDivider = styled.div`
@@ -104,18 +63,6 @@ export const PokeBallsGroup = styled.div`
   }
 `;
 
-export const RedBar = styled.div<RedBarProps>`
-  width: 100%;
-  height: ${(props) => props.height || "13px"};
-  background-color: #ff3464;
-  @media (min-width: 1024px) {
-    height: ${(props) => props.heightNotebook || "13px"};
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-  }
-`;
-
 export const ShuffleButton = styled.div`
   width: 285px;
   height: 51px;
@@ -130,6 +77,7 @@ export const ShuffleButton = styled.div`
   font-size: 1.8rem;
   font-family: "Poppins";
   margin: 30px 0 20px 0;
+  color: #ffffff;
   @media (min-width: 1024px) {
     margin: 50px 0 40px 0;
   }

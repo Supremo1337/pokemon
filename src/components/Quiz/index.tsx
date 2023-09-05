@@ -24,7 +24,7 @@ export default function Quiz() {
     }
     console.log(endpoints, "ENDPOINTS AQQQQQ");
     var response = axios
-      .all(endpoints.map((endpoint) => axios.get(endpoint)))
+      .all(endpoints.map(async (endpoint) => await axios.get(endpoint)))
       .then((res) => {
         // setAllPokemons(res);
         shuffle(res);

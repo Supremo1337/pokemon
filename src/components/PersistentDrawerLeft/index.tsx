@@ -12,12 +12,12 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ListItem from "@mui/material/ListItem";
 import { AppBar, IconGen, ListItemRow } from "./styles";
-import { Title } from "../Quiz/styles";
 import CheckBox, {
   CheckboxContainer,
   HiddenCheckbox,
   StyledCheckbox,
 } from "./CheckBox";
+import { Title } from "@/styles/globalStyles";
 
 const drawerWidth = 240;
 

@@ -90,7 +90,7 @@ export const UnownQuestion = styled.div`
   width: 19%;
   height: 100%;
   display: flex;
-  background-image: url("/img/unown-question2.png");
+  background-image: url("/img/unown-question.png");
   background-size: cover;
   background-repeat: no-repeat;
   mix-blend-mode: soft-light;

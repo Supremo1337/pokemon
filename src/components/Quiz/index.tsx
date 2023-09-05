@@ -64,12 +64,7 @@ export default function Quiz() {
               <S.PokeBallsGroup>
                 {randomPokemons?.slice(0, 8).map((res, index) => {
                   return (
-                    <PokeBall
-                      key={index}
-                      number={index + 1}
-                      pokemon={res}
-                      loading={loading}
-                    />
+                    <PokeBall key={index} number={index + 1} pokemon={res} />
                   );
                 })}
               </S.PokeBallsGroup>

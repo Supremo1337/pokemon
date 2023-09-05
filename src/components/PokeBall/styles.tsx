@@ -1,12 +1,5 @@
 import styled from "styled-components";
 
-interface ContentProps {
-  gridColumn: string;
-  gridRow: string;
-  gridColumnDesktop: string;
-  gridRowDesktop: string;
-}
-
 interface WhosThatPokemonImageProps {
   bgImage: string;
   filter?: string;
@@ -21,10 +14,10 @@ export interface PokemonLogoProps {
   displayDesktop: string;
 }
 
-export const UniquePokeball = styled.div<ContentProps>`
+export const UniquePokeball = styled.div`
   width: 90px;
   height: 90px;
-  background-image: url("/img/Pokeball.svg");
+  background-image: url("/img/pokeball.svg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

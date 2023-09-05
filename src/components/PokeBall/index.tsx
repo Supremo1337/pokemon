@@ -6,10 +6,6 @@ import Modal from "@mui/material/Modal";
 import * as GS from "@/styles/globalStyles";
 
 export interface IPokemonInfoProps {
-  gridColumn: string;
-  gridRow: string;
-  gridColumnDesktop: string;
-  gridRowDesktop: string;
   name: string;
   data: any;
 }
@@ -35,8 +31,7 @@ function style(mediaQuery: boolean) {
 export const PokeBall: React.FC<{
   pokemon: IPokemonInfoProps;
   number: number;
-  loading: boolean;
-}> = ({ pokemon, number, loading }) => {
+}> = ({ pokemon, number }) => {
   const [active, setActive] = useState(false);
   const [open, setOpen] = useState(false);
   const [visible, setVisible] = useState(true);
@@ -55,10 +50,6 @@ export const PokeBall: React.FC<{
       {pokemon && (
         <>
           <S.UniquePokeball
-            gridColumn={pokemon.gridColumn}
-            gridRow={pokemon.gridRow}
-            gridColumnDesktop={pokemon.gridColumnDesktop}
-            gridRowDesktop={pokemon.gridRowDesktop}
             onClick={handleOpen}
             key={pokemon.name}
             style={{ opacity: active ? "0.1" : "1" }}

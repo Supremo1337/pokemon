@@ -18,6 +18,12 @@ interface RedBarProps {
   heightNotebook?: string;
 }
 
+interface GifProps {
+  width?: string;
+  height?: string;
+  bgImage: string;
+}
+
 export const GlobalStyles = createGlobalStyle`
   * {
     margin: 0;
@@ -78,4 +84,14 @@ export const RedBar = styled.div<RedBarProps>`
     justify-content: flex-end;
     align-items: center;
   }
+`;
+
+export const Gif = styled.div<GifProps>`
+  width: ${(props) => props.width || "64px"};
+  height: ${(props) => props.height || "64px"};
+  background-image: ${(props) => `url("/icon/${props.bgImage}.gif")`};
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-bottom: 10px;
 `;

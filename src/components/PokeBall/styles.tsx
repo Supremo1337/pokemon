@@ -218,8 +218,8 @@ export const PokemonName = styled.div`
 `;
 
 export const PokemonNameNotVisible = styled(PokemonName)`
+  width: 270px;
   background: #e93360;
-  color: transparent;
 `;
 
 export const RedBarFlexBox = styled.div`

@@ -3,9 +3,9 @@ import axios, { AxiosResponse } from "axios";
 import Loading from "../Loading";
 import { Shuffle } from "phosphor-react";
 import * as S from "./styles";
-import { PokeBall } from "../PokeBall";
 import styled from "styled-components";
 import * as GS from "@/styles/globalStyles";
+import { PokeBall } from "../PokeBall";
 
 export default function Quiz() {
   // const [allPokemons, setAllPokemons] = useState<AxiosResponse<any, any>[]>();
@@ -13,9 +13,7 @@ export default function Quiz() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    // setTimeout(() => {
     getPokemons();
-    // }, 900000);
   }, []);
 
   const getPokemons = () => {
@@ -66,7 +64,12 @@ export default function Quiz() {
               <S.PokeBallsGroup>
                 {randomPokemons?.slice(0, 8).map((res, index) => {
                   return (
-                    <PokeBall key={index} number={index + 1} pokemon={res} />
+                    <PokeBall
+                      key={index}
+                      number={index + 1}
+                      pokemon={res}
+                      loading={loading}
+                    />
                   );
                 })}
               </S.PokeBallsGroup>
@@ -75,11 +78,7 @@ export default function Quiz() {
                 Aleatorizar
               </S.ShuffleButton>
               <S.Credits>
-                <S.Gif
-                  width="39px"
-                  height="31px"
-                  bgImage={`url("/img/lucario.gif")`}
-                />
+                <GS.Gif width="39px" height="31px" bgImage={"lucario"} />
                 <GS.Subtitle color="#FFFFFF" fontSize="1.8rem">
                   Criado por <span>Lucas Wyllame</span>
                 </GS.Subtitle>
@@ -91,6 +90,7 @@ export default function Quiz() {
       ) : (
         <Loading />
       )}
+      <S.UnownQuestion />
     </S.Wrapper>
   );
 }

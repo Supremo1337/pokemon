@@ -3,7 +3,7 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import { Subtitle, Title } from "../Quiz/styles";
+import * as GS from "@/styles/globalStyles";
 import { TabPanelContent, TutorialImage } from "../TutorialModal/styles";
 import {
   styledBox,
@@ -117,71 +117,71 @@ export default function BasicTabs() {
       </Box>
       <TabPanel sx={tabPanel} value={value} index={0}>
         <TabPanelContent>
-          <Title fontSize="1.4rem">Como Jogar?</Title>
+          <GS.Title fontSize="1.4rem">Como Jogar?</GS.Title>
           <TutorialImage
             height="463px"
             bgImage={`url("/img/MobileTutorial/1- tutorialPokeballHightlight.png")`}
             bgImageLaptop={`url("/img/LaptopTutorial/1- tutorialPokeballHightlight.png")`}
           />
-          <Subtitle fontSize="1.4rem">
+          <GS.Subtitle fontSize="1.4rem">
             Selecione qualquer Pokébola para começar
-          </Subtitle>
+          </GS.Subtitle>
         </TabPanelContent>
       </TabPanel>
       <TabPanel sx={tabPanel} value={value} index={1}>
         <TabPanelContent>
-          <Title fontSize="1.4rem">Como Jogar?</Title>
+          <GS.Title fontSize="1.4rem">Como Jogar?</GS.Title>
           <TutorialImage
             height="463px"
             bgImage={`url("/img/MobileTutorial/2- tutorialPokemonHidden.png")`}
             bgImageLaptop={`url("/img/LaptopTutorial/2- tutorialPokemonHidden.png")`}
           />
-          <Subtitle fontSize="1.4rem">
+          <GS.Subtitle fontSize="1.4rem">
             Pense em qual acha que é o pokémon
-          </Subtitle>
+          </GS.Subtitle>
         </TabPanelContent>
       </TabPanel>
       <TabPanel sx={tabPanel} value={value} index={2}>
         <TabPanelContent>
-          <Title fontSize="1.4rem">Como Jogar?</Title>
+          <GS.Title fontSize="1.4rem">Como Jogar?</GS.Title>
           <TutorialImage
             height="463px"
             bgImage={`url("/img/MobileTutorial/3- tutorialRevealButtonHighlight.png")`}
             bgImageLaptop={`url("/img/LaptopTutorial/3- tutorialRevealButtonHighlight.png")`}
           />
-          <Subtitle fontSize="1.4rem">
+          <GS.Subtitle fontSize="1.4rem">
             Clique no Botão "Revelar", apos pensar sobre qual é o pokemon
-          </Subtitle>
+          </GS.Subtitle>
         </TabPanelContent>
       </TabPanel>
       <TabPanel sx={tabPanel} value={value} index={3}>
         <TabPanelContent>
-          <Title fontSize="1.4rem">Como Jogar?</Title>
+          <GS.Title fontSize="1.4rem">Como Jogar?</GS.Title>
           <TutorialImage
             height="463px"
             bgImage={`url("/img/MobileTutorial/4- tutorialCloseButtonHighlight.png")`}
             bgImageLaptop={`url("/img/LaptopTutorial/4- tutorialCloseButtonHighlight.png")`}
           />
-          <Subtitle fontSize="1.4rem">
+          <GS.Subtitle fontSize="1.4rem">
             Apos descobrir se acertou ou não, Clique no Botão "Fechar" para
             fechar esse pokémon e assim podendo repetir o processo quantas vezes
             quiser.
-          </Subtitle>
+          </GS.Subtitle>
         </TabPanelContent>
       </TabPanel>
       <TabPanel sx={tabPanel} value={value} index={4}>
         <TabPanelContent>
-          <Title fontSize="1.4rem">Como Jogar?</Title>
+          <GS.Title fontSize="1.4rem">Como Jogar?</GS.Title>
           <TutorialImage
             height="463px"
             bgImage={`url("/img/MobileTutorial/5- tutorialRandomButtonHighlight.png")`}
             bgImageLaptop={`url("/img/LaptopTutorial/5- tutorialRandomButtonHighlight.png")`}
           />
-          <Subtitle fontSize="1.4rem">
+          <GS.Subtitle fontSize="1.4rem">
             Quando Advinhar todos os pokémon, clique em "Aleatorizar", para
             mudar os pokemons que tentar advinhar de novo. Agora que Você sabe
             jogar, aproveite e divirta-se.
-          </Subtitle>
+          </GS.Subtitle>
         </TabPanelContent>
       </TabPanel>
     </Box>

@@ -3,7 +3,7 @@ import { useMediaQuery } from "@mui/material";
 import { useState } from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
-import { RedBar, Subtitle, Title } from "../Quiz/styles";
+import * as GS from "@/styles/globalStyles";
 
 export interface IPokemonInfoProps {
   gridColumn: string;
@@ -35,19 +35,16 @@ function style(mediaQuery: boolean) {
 export const PokeBall: React.FC<{
   pokemon: IPokemonInfoProps;
   number: number;
-}> = ({ pokemon, number }) => {
+  loading: boolean;
+}> = ({ pokemon, number, loading }) => {
   const [active, setActive] = useState(false);
   const [open, setOpen] = useState(false);
   const [visible, setVisible] = useState(true);
   const matches = useMediaQuery("(min-width: 1024px)");
 
-  const handleClick = () => {
-    setActive(!active);
-  };
-
   const handleOpen = () => {
     setOpen(true);
-    handleClick();
+    setActive(true);
   };
   const handleClose = () => {
     setOpen(false);
@@ -73,12 +70,12 @@ export const PokeBall: React.FC<{
               <S.Content>
                 <S.TitleDiv>
                   <S.BorderRedTitle />
-                  <Title>Quem é esse Pokémon?</Title>
+                  <GS.Title>Quem é esse Pokémon?</GS.Title>
                 </S.TitleDiv>
                 <S.DivToGroupButtonsAndImages>
                   <S.PokemonLogo display="block" displayDesktop="none" />
                   <S.WhosThatPokemonImageBox>
-                    {visible && "1" ? (
+                    {visible ? (
                       <S.WhosThatPokemon
                         bgImage={
                           `url(${pokemon.data.sprites.other["official-artwork"].front_default})` ||
@@ -87,14 +84,12 @@ export const PokeBall: React.FC<{
                         filter={"brightness(0%)"}
                       />
                     ) : (
-                      <>
-                        <S.WhosThatPokemon
-                          bgImage={
-                            `url(${pokemon.data.sprites.other["official-artwork"].front_default})` ||
-                            ""
-                          }
-                        />
-                      </>
+                      <S.WhosThatPokemon
+                        bgImage={
+                          `url(${pokemon.data.sprites.other["official-artwork"].front_default})` ||
+                          ""
+                        }
+                      />
                     )}
                   </S.WhosThatPokemonImageBox>
                   <S.ButtonsAndLogoDesktop>
@@ -113,18 +108,18 @@ export const PokeBall: React.FC<{
                   </S.ButtonsAndLogoDesktop>
                 </S.DivToGroupButtonsAndImages>
               </S.Content>
-              <RedBar height="160px" heightNotebook="181px">
+              <GS.RedBar height="160px" heightNotebook="181px">
                 <S.RedBarFlexBox>
-                  <Subtitle fontSize="2rem">O Pokémon secreto é...</Subtitle>
-                  {visible && "1" ? (
-                    <S.PokemonNameNotVisible>
-                      {pokemon?.data.name}
-                    </S.PokemonNameNotVisible>
+                  <GS.Subtitle fontSize="2rem">
+                    O Pokémon secreto é...
+                  </GS.Subtitle>
+                  {visible ? (
+                    <S.PokemonNameNotVisible />
                   ) : (
                     <S.PokemonName>{pokemon?.data.name}</S.PokemonName>
                   )}
                 </S.RedBarFlexBox>
-              </RedBar>
+              </GS.RedBar>
             </Box>
           </Modal>
         </>

@@ -1,11 +1,5 @@
 import styled from "styled-components";
 
-interface GifProps {
-  width?: string;
-  height?: string;
-  bgImage?: string;
-}
-
 export const Wrapper = styled.div`
   min-height: 100vh;
   display: flex;
@@ -92,12 +86,27 @@ export const Credits = styled.div`
   align-items: center;
 `;
 
-export const Gif = styled.div<GifProps>`
-  width: ${(props) => props.width};
-  height: ${(props) => props.height};
-  background-image: ${(props) => props.bgImage};
+export const UnownQuestion = styled.div`
+  width: 19%;
+  height: 100%;
+  display: flex;
+  background-image: url("/img/unown-question2.png");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
-  margin-bottom: 10px;
+  mix-blend-mode: soft-light;
+  position: absolute;
+  z-index: 0;
+  align-self: flex-end;
+  @media (min-width: 768px) {
+    width: 35%;
+  }
+  @media (min-width: 1024px) {
+    width: 27%;
+  }
+  @media (min-width: 1264px) {
+    width: 31%;
+  }
+  @media (min-width: 1544px) {
+    width: 35%;
+  }
 `;

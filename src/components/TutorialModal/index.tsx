@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
-import { Title } from "../Quiz/styles";
 import { TutorialImage } from "./styles";
 import BasicTabs from "../BasicTabs";
 import useMediaQuery from "@mui/material/useMediaQuery";
